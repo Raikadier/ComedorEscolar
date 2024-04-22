@@ -32,7 +32,8 @@ public abstract class Usuario extends Persona {
         this.contraseña = contraseña;
     }
     
-    public abstract boolean verificarLogin();
+    public abstract boolean verificarLogin(String nom, String contra);
+    public abstract void agregarUsuario();
     
     
     

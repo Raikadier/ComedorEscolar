@@ -32,6 +32,16 @@ public class Administrador extends Usuario{
         this.listaEstudiantes = listaEstudiantes;
     }
     
+    @Override
+    public boolean verificarLogin(String nom, String contra) {
+        return true;
+    }
+
+    @Override
+    public void agregarUsuario() {
+        
+    }
+    
     public void agregarEstudiante(Estudiante e){
         if (!listaEstudiantes.contains(e)){
             listaEstudiantes.add(e);
