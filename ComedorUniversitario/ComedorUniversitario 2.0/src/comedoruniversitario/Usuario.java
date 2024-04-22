@@ -2,7 +2,7 @@
 package comedoruniversitario;
 
 
-public class Usuario extends Persona {
+public abstract class Usuario extends Persona {
     
     protected String nombreUsuario;
     protected String contraseña;
@@ -32,9 +32,7 @@ public class Usuario extends Persona {
         this.contraseña = contraseña;
     }
     
-    public boolean verificarLogin(){
-        return true;
-    }
+    public abstract boolean verificarLogin();
     
     
     
