@@ -7,11 +7,9 @@ import java.util.ArrayList;
 
 public class Estudiante extends Persona {
     
-    private int cantidadAlmuerzo;
     protected ArrayList <Estudiante> listaEstudiante;
-    private ArrayList <Estudiante> registroAlmuerzo;
-    private LocalDate fechaRetiro;
-    
+    protected String carrera;
+    protected int semestre;
 
     public Estudiante() {
     }
