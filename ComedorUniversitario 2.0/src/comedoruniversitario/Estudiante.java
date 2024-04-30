@@ -16,16 +16,33 @@ public class Estudiante extends Persona {
     
     public Estudiante(String nombre, long cedula, int cantidadAlmuerzo, LocalDate fechaRetiro) {
         super(nombre, cedula);
-        this.cantidadAlmuerzo = cantidadAlmuerzo;
-        this.fechaRetiro = fechaRetiro;
+        this.carrera = carrera;
+        this.semestre = semestre;
+        
     }
 
-    public LocalDate getFechaRetiro() {
-        return fechaRetiro;
+    public ArrayList<Estudiante> getListaEstudiante() {
+        return listaEstudiante;
     }
 
-    public void setFechaRetiro(LocalDate fechaRetiro) {
-        this.fechaRetiro = fechaRetiro;
+    public void setListaEstudiante(ArrayList<Estudiante> listaEstudiante) {
+        this.listaEstudiante = listaEstudiante;
+    }
+
+    public String getCarrera() {
+        return carrera;
+    }
+
+    public void setCarrera(String carrera) {
+        this.carrera = carrera;
+    }
+
+    public int getSemestre() {
+        return semestre;
+    }
+
+    public void setSemestre(int semestre) {
+        this.semestre = semestre;
     }
 
     public String getNombre() {
@@ -43,30 +60,10 @@ public class Estudiante extends Persona {
     public void setCedula(long cedula) {
         this.cedula = cedula;
     }
-    
-
-    public int getCantidadAlmuerzo() {
-        return cantidadAlmuerzo;
-    }
-
-    public void setCantidadAlmuerzo(int cantidadAlmuerzo) {
-        this.cantidadAlmuerzo = cantidadAlmuerzo;
-    }
-
 
     @Override
     public String toString() {
-        return "Estudiante{"+ super.toString() + "cantidadAlmuerzo=" + cantidadAlmuerzo + ", fechaRetiro=" + fechaRetiro + '}';
-    }
-    
-    
-    
-    public void retirarAlmuerzo(Estudiante e){
-        if(listaEstudiante.contains(e)){
-            e.cantidadAlmuerzo -= 1;
-            fechaRetiro = LocalDate.now();
-            registroAlmuerzo.add(e);
-        }
+        return "Estudiante{" + "listaEstudiante=" + listaEstudiante + ", carrera=" + carrera + ", semestre=" + semestre + '}';
     }
     
     public void actualizarRegistroAlmuerzo(Estudiante e){

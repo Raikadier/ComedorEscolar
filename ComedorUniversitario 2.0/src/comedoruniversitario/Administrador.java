@@ -51,6 +51,10 @@ public class Administrador extends Usuario{
         }
     }
     
+    public boolean buscarEstudiante(Estudiante e){
+        return listaEstudiantes.contains(e);
+    }
+    
     public void borrarEstudiante(Estudiante e){
         if(listaEstudiantes.contains(e)){
             listaEstudiantes.remove(e);
