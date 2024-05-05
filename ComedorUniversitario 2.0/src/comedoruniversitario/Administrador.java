@@ -25,8 +25,18 @@ public class Administrador extends Usuario{
     
 
     public Administrador(List<Usuario> listaUsuarios) {
+        this.listaUsuarios = new ArrayList<>();
+    }
+
+
+    public List<Usuario> getListaUsuarios() {
+        return listaUsuarios;
+    }
+
+    public void setListaUsuarios(List<Usuario> listaUsuarios) {
         this.listaUsuarios = listaUsuarios;
     }
+    
     
 
     public List<Estudiante> getListaEstudiantes() {

@@ -67,7 +67,7 @@ public class Empleado extends Usuario{
     @Override
     public boolean verificarLogin(String nom, String contra) {
         for(Usuario u: listaEmpleados){
-            if(u.nombreUsuario == nom && u.contraseña == contra){
+            if(u.nombreUsuario == nom && u.contraseña == contra && u instanceof Empleado){
                 return true;
             }
         }

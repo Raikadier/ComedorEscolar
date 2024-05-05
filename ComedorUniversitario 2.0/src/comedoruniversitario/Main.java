@@ -23,7 +23,7 @@ public class Main {
             System.out.println("Acceso denegado");
         }
         
-        boolean permitirAcceso = administrador.verificarLogin("sofiaPerez", "1234");
+        boolean permitirAcceso = empleado.verificarLogin("sofiaPerez", "1234");
         if(permitirAcceso == true){
             empleado.buscarEstudiante(e);
         }
