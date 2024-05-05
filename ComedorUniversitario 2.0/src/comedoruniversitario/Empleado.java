@@ -2,27 +2,79 @@
 package comedoruniversitario;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Empleado extends Usuario{
     
-    private ArrayList <Usuario> listaEmpleados;
-    private ArrayList <Estudiante> listaEstudiantes;
+    private List <Usuario> listaEmpleados;
+    private List <Estudiante> listaEstudiantes;
 
     public Empleado() {
+        this.listaEmpleados = new ArrayList<>();
     }
 
     public Empleado(String nombreUsuario, String contraseña) {
         super(nombreUsuario, contraseña);
     }
 
+    public Empleado(List<Usuario> listaEmpleados) {
+        this.listaEmpleados = listaEmpleados;
+    }
+
+    public List<Usuario> getListaEmpleados() {
+        return listaEmpleados;
+    }
+
+    public void setListaEmpleados(List<Usuario> listaEmpleados) {
+        this.listaEmpleados = listaEmpleados;
+    }
+
+    public List<Estudiante> getListaEstudiantes() {
+        return listaEstudiantes;
+    }
+
+    public void setListaEstudiantes(List<Estudiante> listaEstudiantes) {
+        this.listaEstudiantes = listaEstudiantes;
+    }
+
     @Override
-    public boolean verificarLogin(String nom, String contra) {
-        return true;
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    @Override
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
+
+    @Override
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    @Override
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
     
+    
     @Override
-    public void agregarUsuario() {
+    public String toString() {
+        return "Empleado{" + super.toString();
     }
+    
+    
+    @Override
+    public boolean verificarLogin(String nom, String contra) {
+        for(Usuario u: listaEmpleados){
+            if(u.nombreUsuario == nom && u.contraseña == contra){
+                return true;
+            }
+        }
+        return false;
+
+    }
+    
     
     public boolean buscarEstudiante(Estudiante e){
         if(listaEstudiantes.contains(e)){

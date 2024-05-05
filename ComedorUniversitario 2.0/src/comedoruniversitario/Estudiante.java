@@ -14,7 +14,7 @@ public class Estudiante extends Persona {
     public Estudiante() {
     }
     
-    public Estudiante(String nombre, long cedula, int cantidadAlmuerzo, LocalDate fechaRetiro) {
+    public Estudiante(String nombre, long cedula, String carrera, int semestre) {
         super(nombre, cedula);
         this.carrera = carrera;
         this.semestre = semestre;
@@ -63,7 +63,7 @@ public class Estudiante extends Persona {
 
     @Override
     public String toString() {
-        return "Estudiante{" + "listaEstudiante=" + listaEstudiante + ", carrera=" + carrera + ", semestre=" + semestre + '}';
+        return "Estudiante{"+super.toString() +  ", carrera=" + carrera + ", semestre=" + semestre + '}';
     }
     
     public void actualizarRegistroAlmuerzo(Estudiante e){

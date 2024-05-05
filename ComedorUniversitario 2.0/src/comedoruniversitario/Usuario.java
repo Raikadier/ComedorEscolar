@@ -33,7 +33,7 @@ public abstract class Usuario extends Persona {
     }
     
     public abstract boolean verificarLogin(String nom, String contra);
-    public abstract void agregarUsuario();
+
     
     
     
