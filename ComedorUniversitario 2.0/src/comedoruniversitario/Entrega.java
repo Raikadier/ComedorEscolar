@@ -56,8 +56,13 @@ public class Entrega {
         boolean confirmarRetiro = periodo.registrarEstado();
         if (confirmarRetiro){
             this.noAlmuerzosDisponibles -= 1;
-            periodo.getEntregas().add(this);
+            periodo.registrarEntregas(this);
+            this.fechaEntrega = LocalDate.now();
         }
+        else{
+            System.out.println("No tiene mas almuerzos disponibles");
+        }
+        //ESTE METODO HAY QUE ANALIZARLO BIEN... NO ESTOY SEGURA 
     }
     
     public void actualizarRegistroAlmuerzo(Estudiante e){
@@ -65,6 +70,7 @@ public class Entrega {
         if(semana.getDays() == 7){
             noAlmuerzosDisponibles = 3;
         }
+        //ESTE METODO HAY QUE ANALIZARLO BIEN... NO ESTOY SEGURA 
         
     }
     
