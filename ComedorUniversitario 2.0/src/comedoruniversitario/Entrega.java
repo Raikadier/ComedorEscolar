@@ -2,6 +2,7 @@
 package comedoruniversitario;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 public class Entrega {
     
@@ -52,10 +53,19 @@ public class Entrega {
     }
     
     public void retirarAlmuerzo(Estudiante e){
-        noAlmuerzosDisponibles -= 1;
-        fechaEntrega = LocalDate.now();
+        boolean confirmarRetiro = periodo.registrarEstado();
+        if (confirmarRetiro){
+            this.noAlmuerzosDisponibles -= 1;
+            periodo.getEntregas().add(this);
+        }
     }
     
-    
+    public void actualizarRegistroAlmuerzo(Estudiante e){
+        Period semana = Period.between(periodo.getFechaFin(), periodo.getFechaInicio());
+        if(semana.getDays() == 7){
+            noAlmuerzosDisponibles = 3;
+        }
+        
+    }
     
 }

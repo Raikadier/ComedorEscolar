@@ -6,67 +6,27 @@ import java.util.List;
 
 public class Empleado extends Usuario{
     
-    private List <Usuario> listaEmpleados;
-    private List <Estudiante> listaEstudiantes;
+    private Administrador administrador;
 
     public Empleado() {
-        this.listaEmpleados = new ArrayList<>();
     }
 
-    public Empleado(String nombreUsuario, String contraseña) {
+    public Empleado(String nombreUsuario, String contraseña,Administrador administrador ) {
         super(nombreUsuario, contraseña);
+        this.administrador = administrador;
+        
     }
 
-    public Empleado(List<Usuario> listaEmpleados) {
-        this.listaEmpleados = listaEmpleados;
-    }
-
-    public List<Usuario> getListaEmpleados() {
-        return listaEmpleados;
-    }
-
-    public void setListaEmpleados(List<Usuario> listaEmpleados) {
-        this.listaEmpleados = listaEmpleados;
-    }
-
-    public List<Estudiante> getListaEstudiantes() {
-        return listaEstudiantes;
-    }
-
-    public void setListaEstudiantes(List<Estudiante> listaEstudiantes) {
-        this.listaEstudiantes = listaEstudiantes;
-    }
-
-    @Override
-    public String getNombreUsuario() {
-        return nombreUsuario;
-    }
-
-    @Override
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
-    }
-
-    @Override
-    public String getContraseña() {
-        return contraseña;
-    }
-
-    @Override
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
-    }
-    
     
     @Override
     public String toString() {
-        return "Empleado{" + super.toString();
+        return "(Empleado)"+"\n" + super.toString();
     }
     
     
     @Override
     public boolean verificarLogin(String nom, String contra) {
-        for(Usuario u: listaEmpleados){
+        for(Usuario u: administrador.getListaUsuarios()){
             if(u.nombreUsuario == nom && u.contraseña == contra && u instanceof Empleado){
                 return true;
             }
@@ -77,7 +37,7 @@ public class Empleado extends Usuario{
     
     
     public boolean buscarEstudiante(Estudiante e){
-        if(listaEstudiantes.contains(e)){
+        if(administrador.getListaEstudiantes().contains(e)){
             System.out.println("Acceso permitido");
             return true;
         }

@@ -2,12 +2,13 @@
 package comedoruniversitario;
 
 
-public abstract class Usuario extends Persona {
+public abstract class Usuario{
     
     protected String nombreUsuario;
     protected String contraseña;
 
     public Usuario() {
+        this.nombreUsuario = "Juan";
     }
     
     
@@ -31,6 +32,12 @@ public abstract class Usuario extends Persona {
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
+
+    @Override
+    public String toString() {
+        return "Usuario -> " + "nombreUsuario: " + nombreUsuario + ", contrase\u00f1a: " + contraseña ;
+    }
+    
     
     public abstract boolean verificarLogin(String nom, String contra);
 

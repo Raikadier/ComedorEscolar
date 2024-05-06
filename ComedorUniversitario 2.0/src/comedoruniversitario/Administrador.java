@@ -17,6 +17,7 @@ public class Administrador extends Usuario{
     public Administrador() {
         this.listaEstudiantes = new ArrayList<>();
         this.listaUsuarios = new ArrayList<>();
+        
     }
 
     public Administrador(String nombreUsuario, String contraseña) {
@@ -46,6 +47,13 @@ public class Administrador extends Usuario{
     public void setListaEstudiantes(ArrayList<Estudiante> listaEstudiantes) {
         this.listaEstudiantes = listaEstudiantes;
     }
+
+    @Override
+    public String toString() {
+        return "(Administrador)" +"\n"+ super.toString();
+    }
+    
+    
     
     @Override
     public boolean verificarLogin(String nom, String contra) {

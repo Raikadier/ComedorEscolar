@@ -2,12 +2,13 @@
 package comedoruniversitario;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.List;
 
 public class Periodo {
     
-    private LocalDate fechaInicio;
-    private LocalDate fechaFin;
+    protected LocalDate fechaInicio;
+    protected LocalDate fechaFin;
     private boolean estado;
     private List<Entrega> entregas;
 
@@ -56,6 +57,20 @@ public class Periodo {
     @Override
     public String toString() {
         return "Periodo{" + "fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", estado=" + estado + ", entregas=" + entregas + '}';
+    }
+    
+    public void registrarEntregas(Entrega entrega){
+        entregas.add(entrega);  
+    }
+    
+    public boolean registrarEstado(){
+        int entregados = this.entregas.size();
+        if(entregados <= 2){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     
     
