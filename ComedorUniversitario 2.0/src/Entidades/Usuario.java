@@ -1,5 +1,5 @@
 
-package comedoruniversitario;
+package Entidades;
 
 
 public abstract class Usuario{

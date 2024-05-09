@@ -1,6 +1,7 @@
 
-package comedoruniversitario;
+package Logica;
 
+import Logica.Entrega;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.List;

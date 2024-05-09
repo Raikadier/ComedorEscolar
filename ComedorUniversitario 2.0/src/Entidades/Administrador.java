@@ -1,6 +1,8 @@
 
-package comedoruniversitario;
+package Entidades;
 
+import Entidades.Usuario;
+import Entidades.Estudiante;
 import java.util.ArrayList;
 import java.util.List;
 
