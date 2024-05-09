@@ -13,7 +13,7 @@ public class Estudiante extends Persona {
 
     public Estudiante() {
     }
-    
+
     public Estudiante(String nombre, long cedula, String carrera, int semestre) {
         super(nombre, cedula);
         this.carrera = carrera;

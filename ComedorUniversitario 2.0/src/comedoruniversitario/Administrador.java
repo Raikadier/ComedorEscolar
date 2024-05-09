@@ -85,16 +85,37 @@ public class Administrador extends Usuario{
         }
     }
     
-    public boolean buscarEstudiante(Estudiante e){
-        return listaEstudiantes.contains(e);
+    public boolean buscarEstudiante(long cedula){
+        for(Estudiante e: listaEstudiantes){
+            if(cedula == e.cedula){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        return false;
     }
     
-    public void borrarEstudiante(Estudiante e){
-        if(listaEstudiantes.contains(e)){
-            listaEstudiantes.remove(e);
+    public void borrarEstudiante(long cedula){
+        for(Estudiante e: listaEstudiantes){
+            if(e.cedula == cedula){
+                listaEstudiantes.remove(e);
+            }
+            else{
+                System.out.println("Estudiante no encontrado");
+            }
         }
-        else{
-            System.out.println("Estudiante no encontrado");
+    }
+    
+    public void borrarUsuario(String nomUsuario){
+        for(Usuario e: listaUsuarios){
+            if(e.nombreUsuario == nomUsuario){
+                listaUsuarios.remove(e);
+            }
+            else{
+                System.out.println("Estudiante no encontrado");
+            }
         }
     }
     

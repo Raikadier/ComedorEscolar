@@ -36,15 +36,17 @@ public class Empleado extends Usuario{
     }
     
     
-    public boolean buscarEstudiante(Estudiante e){
-        if(administrador.getListaEstudiantes().contains(e)){
-            System.out.println("Acceso permitido");
-            return true;
+    public boolean buscarEstudiante(long cedula){
+        for(Estudiante e: administrador.getListaEstudiantes()){
+            if(e.cedula == cedula){
+                System.out.println("Acesso permitido");
+                return true;
+            }
+            else{
+                System.out.println("Acceso denegado");
+            }
         }
-        else{
-            System.out.println("Acceso denegado");
-            return false;
-        }
+        return false;  
     }
             
 }
