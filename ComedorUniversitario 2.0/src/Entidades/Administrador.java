@@ -10,7 +10,7 @@ import java.util.List;
  *
  * @author User
  */
-public class Administrador extends Usuario{
+public class Administrador extends Usuario implements Registro{
     
     private List <Usuario> listaUsuarios;
     private List <Estudiante> listaEstudiantes;
@@ -67,6 +67,7 @@ public class Administrador extends Usuario{
         return false;
     }
 
+    @Override
     public void agregarUsuario(Usuario u) {
         if(!this.listaUsuarios.contains(u)){
             this.listaUsuarios.add(u);
@@ -77,6 +78,7 @@ public class Administrador extends Usuario{
         }
     }
     
+    @Override
     public void agregarEstudiante(Estudiante e){
         if (!listaEstudiantes.contains(e)){
             listaEstudiantes.add(e);
@@ -87,6 +89,7 @@ public class Administrador extends Usuario{
         }
     }
     
+    @Override
     public boolean buscarEstudiante(long cedula){
         for(Estudiante e: listaEstudiantes){
             if(cedula == e.cedula){
@@ -99,6 +102,7 @@ public class Administrador extends Usuario{
         return false;
     }
     
+    @Override
     public void borrarEstudiante(long cedula){
         for(Estudiante e: listaEstudiantes){
             if(e.cedula == cedula){
@@ -110,6 +114,7 @@ public class Administrador extends Usuario{
         }
     }
     
+    @Override
     public void borrarUsuario(String nomUsuario){
         for(Usuario e: listaUsuarios){
             if(e.nombreUsuario == nomUsuario){
@@ -121,6 +126,7 @@ public class Administrador extends Usuario{
         }
     }
     
+    @Override
     public void actualizarEstudiante(Estudiante e){
         if(listaEstudiantes.contains(e)){
             
