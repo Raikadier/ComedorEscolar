@@ -23,6 +23,8 @@ public class Main {
         System.out.println("NOMBRE USUARIO: "); String usuario = entrada.nextLine();
         System.out.println("CONTRASEÑA: "); String clave = entrada.nextLine();
         administrador.agregarUsuario(new Administrador(usuario, clave));
+        System.out.println("---------------------");
+        System.out.println("\n");
         
         finCiclo =  'S';
         while(finCiclo == 'S'){
@@ -39,10 +41,10 @@ public class Main {
         
         switch(opc){
             
-            case 1:  System.out.println("1. ADMINISTRACION");
-                System.out.println("Verificar Login");
-                 /*Por ahora solo se hizo el registro, pero esta opcion tendra todas las acciones 
-                   del administrador*/
+            case 1:  System.out.println("\n");
+                System.out.println("1. ADMINISTRACION");
+                System.out.println("Verificar Login (ADMINISTRADOR)");
+                 /*Por ahora solo se hizo el registro*/
                 System.out.println("nombre usuario: ");
                 entrada.nextLine();
                 String nomUsuario = entrada.nextLine();
@@ -70,8 +72,10 @@ public class Main {
                                      String claveEmpleado = entrada.nextLine();
                                      empleado = new Empleado(userEmpleado, claveEmpleado, administrador);
                                      administrador.agregarUsuario(empleado);
-                                     break;
-                            case 2:  System.out.println("----------------------");
+                                     System.out.println("----------------------");
+                                     System.out.println("\n");
+                                     break;                          
+                            case 2:  
                                      System.out.println("Registro de Estudiante: ");
                                      System.out.println("Nombre Estudiante: ");
                                      entrada.nextLine();
@@ -86,6 +90,7 @@ public class Main {
                                      estudiante = new Estudiante(nomEstudiante, cedEstudiante, carreraEstudiante, semEstudiante);
                                      administrador.agregarEstudiante(estudiante);
                                      System.out.println("----------------------");
+                                     System.out.println("\n");
                                      break;
                             case 6:  op = 'n';
                                  
@@ -99,7 +104,7 @@ public class Main {
                 break;
                 
             case 2:  System.out.println("2. CONTROL DE ACCESO");
-                System.out.println("Verificar Login");
+                System.out.println("Verificar Login (EMPLEADO)");
                 System.out.println("----------------------");
                 System.out.println("nombre usuario: ");
                 entrada.nextLine();
@@ -107,6 +112,8 @@ public class Main {
                 System.out.println("contraseña: ");
                 String contraEmpleado = entrada.nextLine();
                 boolean verificar = empleado.verificarLogin(userEmpleado, contraEmpleado);
+                System.out.println("----------------------");
+                System.out.println("\n");
                 if(verificar){
                     System.out.println("Ingrese cedula del estudiante");
                     long cedula = entrada.nextLong();
@@ -116,6 +123,7 @@ public class Main {
                     System.out.println("Usuario incorrecto / no registrado");
                 }
                 System.out.println("----------------------");
+                System.out.println("\n");
                 break;
            
         }

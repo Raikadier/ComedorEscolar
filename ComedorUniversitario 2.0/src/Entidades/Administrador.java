@@ -60,7 +60,7 @@ public class Administrador extends Usuario implements Registro{
     @Override
     public boolean verificarLogin(String nom, String contra) {
         for(Usuario u: listaUsuarios){
-            if(u.getNombreUsuario().equalsIgnoreCase(nom) && u.getContraseña().equalsIgnoreCase(contra)){
+            if(u.getNombreUsuario().equalsIgnoreCase(nom) && u.getContraseña().equalsIgnoreCase(contra) && u instanceof Administrador){
                 return true;
             }
         }
