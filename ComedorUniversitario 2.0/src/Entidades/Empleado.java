@@ -30,7 +30,7 @@ public class Empleado extends Usuario{
     @Override
     public boolean verificarLogin(String nom, String contra) {
         for(Usuario u: administrador.getListaUsuarios()){
-            if(u.nombreUsuario == nom && u.contraseña == contra && u instanceof Empleado){
+            if(u.getNombreUsuario().equalsIgnoreCase(nom) && u.getContraseña().equalsIgnoreCase(contra) && u instanceof Empleado){
                 return true;
             }
         }
