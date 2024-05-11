@@ -19,6 +19,7 @@ public class Main {
         Empleado empleado = null;
         Estudiante estudiante = null;
         Scanner entrada = new Scanner(System.in);
+        
         System.out.println("Por favor, antes de ingresar cree un Usuario (ADMINISTRADOR)");
         System.out.println("NOMBRE USUARIO: "); String usuario = entrada.nextLine();
         System.out.println("CONTRASEÑA: "); String clave = entrada.nextLine();
