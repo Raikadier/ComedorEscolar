@@ -4,6 +4,7 @@ package Logica;
 import Logica.Entrega;
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Periodo {
@@ -14,13 +15,14 @@ public class Periodo {
     private List<Entrega> entregas;
 
     public Periodo() {
+       this.entregas = new ArrayList<>(); 
     }
 
-    public Periodo(LocalDate fechaInicio, LocalDate fechaFin, boolean estado, List<Entrega> entregas) {
+    public Periodo(LocalDate fechaInicio, LocalDate fechaFin, boolean estado) {
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.estado = estado;
-        this.entregas = entregas;
+        this.entregas = new ArrayList<>();
     }
 
     public LocalDate getFechaInicio() {

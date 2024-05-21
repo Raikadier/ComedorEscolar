@@ -4,6 +4,7 @@ package Presentacion;
 import Entidades.Administrador;
 import Entidades.Empleado;
 import Entidades.Estudiante;
+import Logica.Periodo;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -118,7 +119,16 @@ public class Main {
                 if(verificar){
                     System.out.println("Ingrese cedula del estudiante");
                     long cedula = entrada.nextLong();
-                    empleado.buscarEstudiante(cedula);
+                    boolean acceso = empleado.buscarEstudiante(cedula);
+                    if(acceso){
+                        System.out.println("Para retirar almuerzo presione 1");
+                        int num = entrada.nextInt();
+                        if(num == 1){
+                            LocalDate fechaInicio = LocalDate.now();
+                            Periodo periodo = new Periodo();
+                        }
+                    }
+                    
                 }
                 else{
                     System.out.println("Usuario incorrecto / no registrado");

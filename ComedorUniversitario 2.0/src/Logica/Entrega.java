@@ -9,7 +9,7 @@ public class Entrega {
     
     private Estudiante estudiante;
     private LocalDate fechaEntrega;
-    private int noAlmuerzosDisponibles;
+    private int noAlmuerzosDisponibles = 3;
     private Periodo periodo;
 
     public Entrega() {
@@ -18,7 +18,7 @@ public class Entrega {
     public Entrega(Estudiante estudiante, LocalDate fechaEntrega, int noAlmuerzosDisponibles) {
         this.estudiante = estudiante;
         this.fechaEntrega = fechaEntrega;
-        this.noAlmuerzosDisponibles = noAlmuerzosDisponibles;
+        this.noAlmuerzosDisponibles = 3;
     }
 
     public Periodo getPeriodo() {
