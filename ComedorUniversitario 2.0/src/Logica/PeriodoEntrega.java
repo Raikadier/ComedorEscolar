@@ -7,18 +7,18 @@ import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Periodo {
+public class PeriodoEntrega {
     
     protected LocalDate fechaInicio;
     protected LocalDate fechaFin;
     private boolean estado;
     private List<Entrega> entregas;
 
-    public Periodo() {
+    public PeriodoEntrega() {
        this.entregas = new ArrayList<>(); 
     }
 
-    public Periodo(LocalDate fechaInicio, LocalDate fechaFin, boolean estado) {
+    public PeriodoEntrega(LocalDate fechaInicio, LocalDate fechaFin, boolean estado) {
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.estado = estado;
@@ -66,7 +66,7 @@ public class Periodo {
         entregas.add(entrega);  
     }
     
-    public boolean registrarEstado(){
+    public boolean confirmarRetiro(){
         int entregados = this.entregas.size();
         if(entregados <= 2){
             return true;

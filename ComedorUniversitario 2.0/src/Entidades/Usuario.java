@@ -2,7 +2,7 @@
 package Entidades;
 
 
-public abstract class Usuario{
+public abstract class Usuario extends Persona{
     
     protected String nombreUsuario;
     protected String contraseña;
@@ -10,12 +10,15 @@ public abstract class Usuario{
     public Usuario() {
         this.nombreUsuario = "Juan";
     }
-    
-    
-    public Usuario(String nombreUsuario, String contraseña) {
+
+    public Usuario(String nombreUsuario, String contraseña, String nombre, long cedula, long tel) {
+        super(nombre, cedula, tel);
         this.nombreUsuario = nombreUsuario;
         this.contraseña = contraseña;
     }
+
+    
+    
 
     public String getNombreUsuario() {
         return nombreUsuario;

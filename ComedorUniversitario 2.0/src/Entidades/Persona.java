@@ -4,12 +4,14 @@ package Entidades;
 public class Persona {
     
     protected String nombre;
+    protected long telefono;
     protected long cedula;
 
     public Persona() {
     }
 
-    public Persona(String nombre, long cedula) {
+    public Persona(String nombre, long cedula, long tel) {
+        this.telefono = tel;
         this.nombre = nombre;
         this.cedula = cedula;
     }

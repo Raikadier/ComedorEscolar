@@ -4,7 +4,7 @@ package Presentacion;
 import Entidades.Administrador;
 import Entidades.Empleado;
 import Entidades.Estudiante;
-import Logica.Periodo;
+import Logica.PeriodoEntrega;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -24,7 +24,10 @@ public class Main {
         System.out.println("Por favor, antes de ingresar cree un Usuario (ADMINISTRADOR)");
         System.out.println("NOMBRE USUARIO: "); String usuario = entrada.nextLine();
         System.out.println("CONTRASEÑA: "); String clave = entrada.nextLine();
-        administrador.agregarUsuario(new Administrador(usuario, clave));
+        System.out.println("NOMBRE PERSONA: "); String nombreAdministrador = entrada.nextLine();
+        System.out.println("CEDULA: "); long cedAdministrador = entrada.nextLong();
+        System.out.println("TELEFONO: "); long telAdministrador = entrada.nextLong();
+        administrador.agregarUsuario(new Administrador(usuario, clave, nombreAdministrador, cedAdministrador, telAdministrador));
         System.out.println("---------------------");
         System.out.println("\n");
         
@@ -46,7 +49,6 @@ public class Main {
             case 1:  System.out.println("\n");
                 System.out.println("1. ADMINISTRACION");
                 System.out.println("Verificar Login (ADMINISTRADOR)");
-                 /*Por ahora solo se hizo el registro*/
                 System.out.println("nombre usuario: ");
                 entrada.nextLine();
                 String nomUsuario = entrada.nextLine();
@@ -60,11 +62,12 @@ public class Main {
                             System.out.println("1. AGREGAR USUARIO");
                             System.out.println("2. AGREGAR ESTUDIANTE");
                             System.out.println("3. BORRAR ESTUDIANTE");
-                            System.out.println("4. BORRAR USUARIO");
-                            System.out.println("5. ACTUALIZAR ESTUDIANTE");
-                            System.out.println("6. SALIR");
+                            System.out.println("4. BUSCAR ESTUDIANTE");
+                            System.out.println("5. BORRAR USUARIO");
+                            System.out.println("6. ACTUALIZAR ESTUDIANTE");
+                            System.out.println("7. SALIR");
                             opcAdmin = entrada.nextInt();
-                        } while (opcAdmin < 1 || opcAdmin > 6);
+                        } while (opcAdmin < 1 || opcAdmin > 7);
                         switch(opcAdmin){
                             case 1:  System.out.println("REGISTRO DE USUARIOS (EMPLEADOS)");
                                      System.out.println("nombre usuario: ");
@@ -72,7 +75,10 @@ public class Main {
                                      String userEmpleado = entrada.nextLine();
                                      System.out.println("contraseña: ");
                                      String claveEmpleado = entrada.nextLine();
-                                     empleado = new Empleado(userEmpleado, claveEmpleado, administrador);
+                                     System.out.println("NOMBRE PERSONA: "); String nombreEmpleado = entrada.nextLine();
+                                     System.out.println("CEDULA: "); long cedEmpleado = entrada.nextLong();
+                                     System.out.println("TELEFONO: "); long telEmpleado = entrada.nextLong();
+                                     empleado = new Empleado(administrador, userEmpleado, claveEmpleado, nombreEmpleado, cedEmpleado, telEmpleado);
                                      administrador.agregarUsuario(empleado);
                                      System.out.println("----------------------");
                                      System.out.println("\n");
@@ -82,19 +88,48 @@ public class Main {
                                      System.out.println("Nombre Estudiante: ");
                                      entrada.nextLine();
                                      String nomEstudiante = entrada.nextLine();
+                                     System.out.println("carrera: ");
+                                     String carreraEstudiante = entrada.nextLine();
+                                     System.out.println("correo estudiante: "); 
+                                     String correoEstudiante = entrada.nextLine();
                                      System.out.println("cedula Estudiante: ");
                                      long cedEstudiante = entrada.nextLong();
-                                     System.out.println("carrera: ");
-                                     entrada.nextLine();
-                                     String carreraEstudiante = entrada.nextLine();
+                                     System.out.println("telefono Estudiante: ");
+                                     long telEstudiante = entrada.nextLong();
                                      System.out.println("semestre Estudiante: ");
                                      int semEstudiante = entrada.nextInt();
-                                     estudiante = new Estudiante(nomEstudiante, cedEstudiante, carreraEstudiante, semEstudiante);
+                                     estudiante = new Estudiante(carreraEstudiante, correoEstudiante, semEstudiante, nomEstudiante, cedEstudiante, telEstudiante);
                                      administrador.agregarEstudiante(estudiante);
                                      System.out.println("----------------------");
                                      System.out.println("\n");
                                      break;
-                            case 6:  op = 'n';
+                                     
+                            case 3:  System.out.println("BORRAR ESTUDIANTE");
+                                     System.out.println("Cedula de estudiante: ");
+                                     long cedula = entrada.nextLong();
+                                     administrador.borrarEstudiante(cedula);
+                                     System.out.println("----------------------");
+                                     System.out.println("\n");
+                                     break;
+                                     
+                            case 4:  System.out.println("BUSCAR ESTUDIANTE");
+                                     System.out.println("Cedula de estudiante: ");
+                                     long cedula2 = entrada.nextLong();
+                                     administrador.buscarEstudiante(cedula2);
+                                     System.out.println("----------------------");
+                                     System.out.println("\n");
+                                     break;
+                                     
+                            case 5:  System.out.println("BORRAR USUARIO");
+                                     System.out.println("Nombre Usuario a borrar: ");
+                                     entrada.nextLine();
+                                     String nombreUsuario = entrada.nextLine();
+                                     administrador.borrarUsuario(nombreUsuario);
+                                     System.out.println("----------------------");
+                                     System.out.println("\n");
+                                     break;
+                                     
+                            case 7:  op = 'n';
                                  
                         }
                     }
@@ -125,7 +160,7 @@ public class Main {
                         int num = entrada.nextInt();
                         if(num == 1){
                             LocalDate fechaInicio = LocalDate.now();
-                            Periodo periodo = new Periodo();
+                            PeriodoEntrega periodo = new PeriodoEntrega();
                         }
                     }
                     

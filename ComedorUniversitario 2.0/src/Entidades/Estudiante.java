@@ -9,17 +9,29 @@ public class Estudiante extends Persona {
     
     protected ArrayList <Estudiante> listaEstudiante;
     protected String carrera;
+    private String correo;
     protected int semestre;
 
     public Estudiante() {
     }
 
-    public Estudiante(String nombre, long cedula, String carrera, int semestre) {
-        super(nombre, cedula);
+    public Estudiante(String carrera, String correo, int semestre, String nombre, long cedula, long tel) {
+        super(nombre, cedula, tel);
+        this.listaEstudiante = listaEstudiante;
         this.carrera = carrera;
+        this.correo = correo;
         this.semestre = semestre;
-        
     }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    
 
     public ArrayList<Estudiante> getListaEstudiante() {
         return listaEstudiante;

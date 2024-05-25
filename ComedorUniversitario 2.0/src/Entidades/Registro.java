@@ -9,5 +9,5 @@ public interface Registro {
     public boolean buscarEstudiante(long cedula);
     public void borrarEstudiante(long cedula);
     public void borrarUsuario(String nomUsuario);
-    public void actualizarEstudiante(Estudiante e);
+    public void actualizarEstudiante(long cedula);
 }

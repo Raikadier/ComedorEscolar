@@ -10,7 +10,7 @@ public class Entrega {
     private Estudiante estudiante;
     private LocalDate fechaEntrega;
     private int noAlmuerzosDisponibles = 3;
-    private Periodo periodo;
+    private PeriodoEntrega periodo;
 
     public Entrega() {
     }
@@ -21,11 +21,11 @@ public class Entrega {
         this.noAlmuerzosDisponibles = 3;
     }
 
-    public Periodo getPeriodo() {
+    public PeriodoEntrega getPeriodo() {
         return periodo;
     }
 
-    public void setPeriodo(Periodo periodo) {
+    public void setPeriodo(PeriodoEntrega periodo) {
         this.periodo = periodo;
     }
     
@@ -55,7 +55,7 @@ public class Entrega {
     
     
     public void retirarAlmuerzo(Estudiante e){
-        boolean confirmarRetiro = periodo.registrarEstado();
+        boolean confirmarRetiro = periodo.confirmarRetiro();
         if (confirmarRetiro){
             this.noAlmuerzosDisponibles -= 1;
             periodo.registrarEntregas(this);

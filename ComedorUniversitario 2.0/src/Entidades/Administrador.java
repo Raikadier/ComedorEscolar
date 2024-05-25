@@ -22,13 +22,10 @@ public class Administrador extends Usuario implements Registro{
         
     }
 
-    public Administrador(String nombreUsuario, String contraseña) {
-        super(nombreUsuario, contraseña);
-    }
-    
-
-    public Administrador(List<Usuario> listaUsuarios) {
+    public Administrador(String nombreUsuario, String contraseña, String nombre, long cedula, long tel) {
+        super(nombreUsuario, contraseña, nombre, cedula, tel);
         this.listaUsuarios = new ArrayList<>();
+        this.listaEstudiantes = new ArrayList<>();
     }
 
 
@@ -119,6 +116,7 @@ public class Administrador extends Usuario implements Registro{
         for(Usuario e: listaUsuarios){
             if(e.nombreUsuario == nomUsuario){
                 listaUsuarios.remove(e);
+                System.out.println("Estudiante eliminado");
             }
             else{
                 System.out.println("Estudiante no encontrado");
@@ -127,9 +125,7 @@ public class Administrador extends Usuario implements Registro{
     }
     
     @Override
-    public void actualizarEstudiante(Estudiante e){
-        if(listaEstudiantes.contains(e)){
-            
-        }
+    public void actualizarEstudiante(long cedula){
+        
     }
 }

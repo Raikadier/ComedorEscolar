@@ -14,19 +14,18 @@ public class Empleado extends Usuario{
     public Empleado() {
     }
 
-    public Empleado(String nombreUsuario, String contraseña,Administrador administrador ) {
-        super(nombreUsuario, contraseña);
+    public Empleado(Administrador administrador, String nombreUsuario, String contraseña, String nombre, long cedula, long tel) {
+        super(nombreUsuario, contraseña, nombre, cedula, tel);
         this.administrador = administrador;
-        
     }
 
     
+  
     @Override
     public String toString() {
         return "(Empleado)"+"\n" + super.toString();
     }
-    
-    
+   
     @Override
     public boolean verificarLogin(String nom, String contra) {
         for(Usuario u: administrador.getListaUsuarios()){
