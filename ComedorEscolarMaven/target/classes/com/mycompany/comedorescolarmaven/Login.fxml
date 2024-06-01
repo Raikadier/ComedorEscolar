@@ -21,13 +21,13 @@
                <children>
                   <ImageView fitHeight="151.0" fitWidth="168.0" pickOnBounds="true" preserveRatio="true" rotate="-178.9">
                      <VBox.margin>
-                        <Insets bottom="10.0" left="250.0" top="3.0" />
+                        <Insets bottom="10.0" left="300.0" top="3.0" />
                      </VBox.margin>
                      <image>
                         <Image url="@../../../../../../../../../Captura%20de%20pantalla%202024-05-31%20111137.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="173.0" fitWidth="167.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="178.0" fitWidth="185.0" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>
                         <Insets bottom="4.0" right="300.0" top="380.0" />
                      </VBox.margin>
@@ -51,7 +51,7 @@
                                     <Rectangle2D />
                                  </viewport>
                                  <VBox.margin>
-                                    <Insets bottom="25.0" left="175.0" top="25.0" />
+                                    <Insets bottom="25.0" left="175.0" top="80.0" />
                                  </VBox.margin>
                               </ImageView>
                               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="46.0" prefWidth="502.0" text="INICIO DE SESION">

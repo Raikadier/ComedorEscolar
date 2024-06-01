@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.HashSet;
 
 /**
  * JavaFX App
@@ -19,7 +20,8 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("Login"));
         stage.setScene(scene);
-        stage.sizeToScene();
+        stage.setMaximized(true);
+        stage.setTitle("Login ...");
         stage.show();
     }
 
