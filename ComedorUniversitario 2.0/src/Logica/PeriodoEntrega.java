@@ -1,7 +1,9 @@
 
 package Logica;
 
+import Entidades.Estudiante;
 import Logica.Entrega;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
@@ -12,17 +14,18 @@ public class PeriodoEntrega {
     protected LocalDate fechaInicio;
     protected LocalDate fechaFin;
     private boolean estado;
-    private List<Entrega> entregas;
+    private Estudiante estudiante;
+    private RegistroPeriodoEntregaImpList entregas;
 
-    public PeriodoEntrega() {
-       this.entregas = new ArrayList<>(); 
+    public PeriodoEntrega() { 
     }
 
-    public PeriodoEntrega(LocalDate fechaInicio, LocalDate fechaFin, boolean estado) {
-        this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
+    public PeriodoEntrega(RegistroPeriodoEntregaImpList entregas) {
+        this.fechaInicio = LocalDate.now();
+        this.fechaFin = fechaInicio.plusDays(7);
         this.estado = estado;
-        this.entregas = new ArrayList<>();
+        this.entregas = entregas;
+        this.estudiante = estudiante;
     }
 
     public LocalDate getFechaInicio() {
@@ -49,11 +52,19 @@ public class PeriodoEntrega {
         this.estado = estado;
     }
 
-    public List<Entrega> getEntregas() {
+    public Estudiante getEstudiante() {
+        return estudiante;
+    }
+
+    public void setEstudiante(Estudiante estudiante) {
+        this.estudiante = estudiante;
+    }
+
+    public RegistroPeriodoEntregaImpList getEntregas() {
         return entregas;
     }
 
-    public void setEntregas(List<Entrega> entregas) {
+    public void setEntregas(RegistroPeriodoEntregaImpList entregas) {
         this.entregas = entregas;
     }
 
@@ -62,18 +73,33 @@ public class PeriodoEntrega {
         return "Periodo{" + "fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", estado=" + estado + ", entregas=" + entregas + '}';
     }
     
-    public void registrarEntregas(Entrega entrega){
-        entregas.add(entrega);  
-    }
-    
-    public boolean confirmarRetiro(){
-        int entregados = this.entregas.size();
-        if(entregados <= 2){
-            return true;
+    public void actualizarPeriodo(){
+        DayOfWeek diaSemanaActual = LocalDate.now().getDayOfWeek();
+        if(diaSemanaActual == DayOfWeek.MONDAY || diaSemanaActual == DayOfWeek.TUESDAY){
+            this.fechaInicio = LocalDate.now();
+            this.fechaFin = fechaInicio.plusDays(7);
+            System.out.println("Periodo Actualizado");
+            System.out.println("PERIODO -> Fecha inicio: "+ fechaInicio+", Fecha fin: "+fechaFin);
         }
         else{
-            return false;
+            System.out.println("No se ha podido actualizar el periodo");
         }
+    }
+    
+    
+    public boolean confirmarRetiro(Estudiante e){
+        int entregados = 0;
+
+        for(Entrega entrega: entregas.getEntregas()){
+            if(entrega.getEstudiante().equals(e)){
+                if(entrega.getFechaEntrega().isAfter(fechaInicio) || entrega.getFechaEntrega().isBefore(fechaFin) 
+                || entrega.getFechaEntrega().isEqual(fechaInicio) || entrega.getFechaEntrega().isEqual(fechaFin)){
+                    entregados += 1;
+                }
+            }
+        }
+        
+        return entregados < 3;
     }
     
     

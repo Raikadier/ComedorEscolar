@@ -4,7 +4,9 @@ package Presentacion;
 import Entidades.Administrador;
 import Entidades.Empleado;
 import Entidades.Estudiante;
+import Logica.Entrega;
 import Logica.PeriodoEntrega;
+import Logica.RegistroPeriodoEntregaImpList;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -148,22 +150,35 @@ public class Main {
                 String userEmpleado = entrada.nextLine();
                 System.out.println("contraseña: ");
                 String contraEmpleado = entrada.nextLine();
+                
                 boolean verificar = empleado.verificarLogin(userEmpleado, contraEmpleado);
                 System.out.println("----------------------");
                 System.out.println("\n");
                 if(verificar){
-                    System.out.println("Ingrese cedula del estudiante");
-                    long cedula = entrada.nextLong();
-                    boolean acceso = empleado.buscarEstudiante(cedula);
-                    if(acceso){
-                        System.out.println("Para retirar almuerzo presione 1");
-                        int num = entrada.nextInt();
-                        if(num == 1){
-                            LocalDate fechaInicio = LocalDate.now();
-                            PeriodoEntrega periodo = new PeriodoEntrega();
-                        }
-                    }
+                    System.out.println("1. CONTROL DE ACCESO");
+                    System.out.println("2. ACTUALIZAR PERIODO");
+                    int opcionEmpleado = entrada.nextInt();
+                    RegistroPeriodoEntregaImpList RegistroEntregas = new RegistroPeriodoEntregaImpList();
+                    PeriodoEntrega periodo = new PeriodoEntrega(RegistroEntregas);
                     
+                    switch(opcionEmpleado){
+                        case 1:  System.out.println("Ingrese cedula del estudiante");
+                                 long cedula = entrada.nextLong();
+                                 Estudiante acceso = empleado.buscarEstudiante(cedula);
+                                 if(acceso != null){
+                                    System.out.println("Para retirar almuerzo presione 1");
+                                    int num = entrada.nextInt();
+                                    if(num == 1){
+                                        Entrega entrega = new Entrega(acceso, RegistroEntregas);
+                                        entrega.retirarAlmuerzo(acceso);
+                                    }
+                                }
+                        case 2: System.out.println("Presione 1 para actualizar periodo");
+                                int actualizar = entrada.nextInt();
+                                if(actualizar == 1){
+                                    periodo.actualizarPeriodo();
+                                }
+                    }
                 }
                 else{
                     System.out.println("Usuario incorrecto / no registrado");

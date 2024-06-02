@@ -3,6 +3,7 @@ package com.mycompany.Datos;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class Estudiante extends Persona {
@@ -72,6 +73,23 @@ public class Estudiante extends Persona {
     public void setCedula(long cedula) {
         this.cedula = cedula;
     }
+    
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;  
+        Estudiante that = (Estudiante) o;
+        return semestre == that.semestre &&
+               Objects.equals(carrera, that.carrera) &&
+               Objects.equals(correo, that.correo) &&
+               Objects.equals(listaEstudiante, that.listaEstudiante);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), carrera, correo, semestre, listaEstudiante);
+    }
+
 
     @Override
     public String toString() {
