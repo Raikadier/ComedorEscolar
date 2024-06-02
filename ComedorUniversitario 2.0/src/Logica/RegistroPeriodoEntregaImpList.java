@@ -25,6 +25,12 @@ public class RegistroPeriodoEntregaImpList implements RegistroPeriodoEntrega {
     }
 
     @Override
+    public String toString() {
+        return "RegistroPeriodoEntregaImpList{" + "entregas=" + entregas + '}';
+    }
+    
+
+    @Override
     public void registrarEntrega(Entrega entrega) {
         entregas.add(entrega);
     }

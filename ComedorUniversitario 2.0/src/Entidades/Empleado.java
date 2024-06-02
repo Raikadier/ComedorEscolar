@@ -38,17 +38,17 @@ public class Empleado extends Usuario{
     }
     
     
-    public boolean buscarEstudiante(long cedula){
+    public Estudiante buscarEstudiante(long cedula){
         for(Estudiante e: administrador.getListaEstudiantes()){
             if(e.cedula == cedula){
                 System.out.println("Acesso permitido");
-                return true;
+                return e;
             }
             else{
-                System.out.println("Acceso denegado");
+                System.out.println("Acceso denegado - NO EXISTE EN EL SISTEMA");
             }
         }
-        return false;  
+        return null;  
     }
             
 }

@@ -20,7 +20,7 @@ public class PeriodoEntrega {
     public PeriodoEntrega() { 
     }
 
-    public PeriodoEntrega(Estudiante estudiante, RegistroPeriodoEntregaImpList entregas) {
+    public PeriodoEntrega(RegistroPeriodoEntregaImpList entregas) {
         this.fechaInicio = LocalDate.now();
         this.fechaFin = fechaInicio.plusDays(7);
         this.estado = estado;
@@ -88,13 +88,18 @@ public class PeriodoEntrega {
     
     
     public boolean confirmarRetiro(Estudiante e){
-        int entregados = this.entregas.getEntregas().size();
+        int entregados = 0;
 
         for(Entrega entrega: entregas.getEntregas()){
-            if(entrega.getEstudiante() == e){
+            if(entrega.getEstudiante().equals(e)){
+                if(entrega.getFechaEntrega().isAfter(fechaInicio) || entrega.getFechaEntrega().isBefore(fechaFin) 
+                || entrega.getFechaEntrega().isEqual(fechaInicio) || entrega.getFechaEntrega().isEqual(fechaFin)){
+                    entregados += 1;
+                }
             }
         }
-        return true;
+        
+        return entregados < 3;
     }
     
     

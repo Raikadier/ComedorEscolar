@@ -11,12 +11,14 @@ public class Entrega {
     private LocalDate fechaEntrega;
     private int noAlmuerzosDisponibles = 3;
     private PeriodoEntrega periodo;
+    private RegistroPeriodoEntregaImpList entregas;
 
     public Entrega() {
     }
 
-    public Entrega(Estudiante estudiante, LocalDate fechaEntrega, int noAlmuerzosDisponibles) {
+    public Entrega(Estudiante estudiante, RegistroPeriodoEntregaImpList entregas ) {
         this.estudiante = estudiante;
+        this.entregas = entregas;
         this.fechaEntrega = fechaEntrega;
         this.noAlmuerzosDisponibles = 3;
     }
@@ -58,8 +60,9 @@ public class Entrega {
         boolean confirmarRetiro = periodo.confirmarRetiro(e);
         if (confirmarRetiro){
             this.noAlmuerzosDisponibles -= 1;
-
             this.fechaEntrega = LocalDate.now();
+            entregas.registrarEntrega(this);
+            
         }
         else{
             System.out.println("No tiene mas almuerzos disponibles");
