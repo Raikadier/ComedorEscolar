@@ -1,7 +1,9 @@
 
 package Logica;
 
+import Entidades.Estudiante;
 import Logica.Entrega;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
@@ -12,17 +14,16 @@ public class PeriodoEntrega {
     protected LocalDate fechaInicio;
     protected LocalDate fechaFin;
     private boolean estado;
-    private List<Entrega> entregas;
+    private RegistroPeriodoEntregaImpList entregas;
 
-    public PeriodoEntrega() {
-       this.entregas = new ArrayList<>(); 
+    public PeriodoEntrega() { 
     }
 
-    public PeriodoEntrega(LocalDate fechaInicio, LocalDate fechaFin, boolean estado) {
-        this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
+    public PeriodoEntrega(RegistroPeriodoEntregaImpList entregas) {
+        this.fechaInicio = LocalDate.now();
+        this.fechaFin = fechaInicio.plusDays(7);
         this.estado = estado;
-        this.entregas = new ArrayList<>();
+        this.entregas = entregas;
     }
 
     public LocalDate getFechaInicio() {
@@ -49,25 +50,31 @@ public class PeriodoEntrega {
         this.estado = estado;
     }
 
-    public List<Entrega> getEntregas() {
-        return entregas;
-    }
 
-    public void setEntregas(List<Entrega> entregas) {
-        this.entregas = entregas;
-    }
 
     @Override
     public String toString() {
         return "Periodo{" + "fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", estado=" + estado + ", entregas=" + entregas + '}';
     }
     
-    public void registrarEntregas(Entrega entrega){
-        entregas.add(entrega);  
+    public void actualizarPeriodo(){
+        DayOfWeek diaSemanaActual = LocalDate.now().getDayOfWeek();
+        if(diaSemanaActual == DayOfWeek.MONDAY || diaSemanaActual == DayOfWeek.THURSDAY){
+            this.fechaInicio = LocalDate.now();
+            this.fechaFin = fechaInicio.plusDays(7);
+            System.out.println("Periodo Actualizado");
+        }
+        else{
+            System.out.println("No se ha podido actualizar el periodo");
+        }
     }
     
-    public boolean confirmarRetiro(){
-        int entregados = this.entregas.size();
+    public void registrarEntregas(Entrega entrega){
+        entregas.registrarEntrega(entrega);
+    }
+    
+    public boolean confirmarRetiro(Estudiante estudiante){
+        int entregados = this.entregas.getEntregas().size();
         if(entregados <= 2){
             return true;
         }
