@@ -14,16 +14,18 @@ public class PeriodoEntrega {
     protected LocalDate fechaInicio;
     protected LocalDate fechaFin;
     private boolean estado;
+    private Estudiante estudiante;
     private RegistroPeriodoEntregaImpList entregas;
 
     public PeriodoEntrega() { 
     }
 
-    public PeriodoEntrega(RegistroPeriodoEntregaImpList entregas) {
+    public PeriodoEntrega(Estudiante estudiante, RegistroPeriodoEntregaImpList entregas) {
         this.fechaInicio = LocalDate.now();
         this.fechaFin = fechaInicio.plusDays(7);
         this.estado = estado;
         this.entregas = entregas;
+        this.estudiante = estudiante;
     }
 
     public LocalDate getFechaInicio() {
@@ -50,7 +52,21 @@ public class PeriodoEntrega {
         this.estado = estado;
     }
 
+    public Estudiante getEstudiante() {
+        return estudiante;
+    }
 
+    public void setEstudiante(Estudiante estudiante) {
+        this.estudiante = estudiante;
+    }
+
+    public RegistroPeriodoEntregaImpList getEntregas() {
+        return entregas;
+    }
+
+    public void setEntregas(RegistroPeriodoEntregaImpList entregas) {
+        this.entregas = entregas;
+    }
 
     @Override
     public String toString() {
@@ -59,28 +75,26 @@ public class PeriodoEntrega {
     
     public void actualizarPeriodo(){
         DayOfWeek diaSemanaActual = LocalDate.now().getDayOfWeek();
-        if(diaSemanaActual == DayOfWeek.MONDAY || diaSemanaActual == DayOfWeek.THURSDAY){
+        if(diaSemanaActual == DayOfWeek.MONDAY || diaSemanaActual == DayOfWeek.TUESDAY){
             this.fechaInicio = LocalDate.now();
             this.fechaFin = fechaInicio.plusDays(7);
             System.out.println("Periodo Actualizado");
+            System.out.println("PERIODO -> Fecha inicio: "+ fechaInicio+", Fecha fin: "+fechaFin);
         }
         else{
             System.out.println("No se ha podido actualizar el periodo");
         }
     }
     
-    public void registrarEntregas(Entrega entrega){
-        entregas.registrarEntrega(entrega);
-    }
     
-    public boolean confirmarRetiro(Estudiante estudiante){
+    public boolean confirmarRetiro(Estudiante e){
         int entregados = this.entregas.getEntregas().size();
-        if(entregados <= 2){
-            return true;
+
+        for(Entrega entrega: entregas.getEntregas()){
+            if(entrega.getEstudiante() == e){
+            }
         }
-        else{
-            return false;
-        }
+        return true;
     }
     
     

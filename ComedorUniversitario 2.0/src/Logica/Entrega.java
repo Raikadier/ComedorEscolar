@@ -55,10 +55,10 @@ public class Entrega {
     
     
     public void retirarAlmuerzo(Estudiante e){
-        boolean confirmarRetiro = periodo.confirmarRetiro();
+        boolean confirmarRetiro = periodo.confirmarRetiro(e);
         if (confirmarRetiro){
             this.noAlmuerzosDisponibles -= 1;
-            periodo.registrarEntregas(this);
+
             this.fechaEntrega = LocalDate.now();
         }
         else{
