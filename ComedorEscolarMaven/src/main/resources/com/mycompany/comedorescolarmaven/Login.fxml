@@ -31,7 +31,7 @@
                   </ImageView>
                   <ImageView fitHeight="178.0" fitWidth="185.0" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>
-                        <Insets bottom="4.0" right="300.0" top="380.0" />
+                        <Insets bottom="4.0" right="350.0" top="380.0" />
                      </VBox.margin>
                      <image>
                         <Image url="@../../../../../../../../../Captura%20de%20pantalla%202024-05-31%20111137.png" />
@@ -80,7 +80,7 @@
                                     <Insets bottom="25.0" left="45.0" right="45.0" top="7.0" />
                                  </VBox.margin>
                               </PasswordField>
-                              <Button defaultButton="true" mnemonicParsing="false" prefHeight="26.0" prefWidth="502.0" text="Iniciar Sesion">
+                              <Button defaultButton="true" mnemonicParsing="false" prefHeight="26.0" prefWidth="502.0" style="-fx-background-color: green;" text="Iniciar Sesion" textFill="#fafafa">
                                  <VBox.margin>
                                     <Insets bottom="30.0" left="160.0" right="150.0" top="20.0" />
                                  </VBox.margin>
