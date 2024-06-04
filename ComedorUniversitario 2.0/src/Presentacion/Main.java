@@ -40,9 +40,8 @@ public class Main {
             System.out.println("   DIGITE OPCION");
             System.out.println("----------------------");
             System.out.println("1. ADMINISTRACION");
-            System.out.println("2. CONTROL DE ACCESO");
-            System.out.println("3. CONFIGURACION");
-            System.out.println("4. SALIR");
+            System.out.println("2. EMPLEADO");
+            System.out.println("3. SALIR");
             opc = entrada.nextInt();
         } while ((opc < 1) || (opc > 3));
         
@@ -186,6 +185,7 @@ public class Main {
                 System.out.println("----------------------");
                 System.out.println("\n");
                 break;
+            case 3: finCiclo = 'N';
            
         }
         }

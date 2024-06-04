@@ -22,7 +22,7 @@ public class PeriodoEntrega {
 
     public PeriodoEntrega(RegistroPeriodoEntregaImpList entregas) {
         this.fechaInicio = LocalDate.now();
-        this.fechaFin = fechaInicio.plusDays(7);
+        this.fechaFin = fechaInicio.plusDays(6);
         this.estado = estado;
         this.entregas = entregas;
         this.estudiante = estudiante;
@@ -77,7 +77,7 @@ public class PeriodoEntrega {
         DayOfWeek diaSemanaActual = LocalDate.now().getDayOfWeek();
         if(diaSemanaActual == DayOfWeek.MONDAY || diaSemanaActual == DayOfWeek.TUESDAY){
             this.fechaInicio = LocalDate.now();
-            this.fechaFin = fechaInicio.plusDays(7);
+            this.fechaFin = fechaInicio.plusDays(6);
             System.out.println("Periodo Actualizado");
             System.out.println("PERIODO -> Fecha inicio: "+ fechaInicio+", Fecha fin: "+fechaFin);
         }
@@ -88,6 +88,7 @@ public class PeriodoEntrega {
     
     
     public boolean confirmarRetiro(Estudiante e){
+        System.out.println(e);
         int entregados = 0;
 
         for(Entrega entrega: entregas.getEntregas()){

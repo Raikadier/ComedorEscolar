@@ -54,9 +54,23 @@ public class Entrega {
     public void setNoAlmuerzosDisponibles(int noAlmuerzosDisponibles) {
         this.noAlmuerzosDisponibles = noAlmuerzosDisponibles;
     }
+
+    public RegistroPeriodoEntregaImpList getEntregas() {
+        return entregas;
+    }
+
+    public void setEntregas(RegistroPeriodoEntregaImpList entregas) {
+        this.entregas = entregas;
+    }
+
+    @Override
+    public String toString() {
+        return "Entrega{" + "estudiante=" + estudiante + ", fechaEntrega=" + fechaEntrega + ", noAlmuerzosDisponibles=" + noAlmuerzosDisponibles + ", periodo=" + periodo + ", entregas=" + entregas + '}';
+    }
     
     
     public void retirarAlmuerzo(Estudiante e){
+        System.out.println(e);
         boolean confirmarRetiro = periodo.confirmarRetiro(e);
         if (confirmarRetiro){
             this.noAlmuerzosDisponibles -= 1;
