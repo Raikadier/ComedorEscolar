@@ -16,11 +16,11 @@
     <VBox>
         <HBox styleClass="sidebar">
             <VBox>
-            <StackPane prefHeight="562.0" prefWidth="200.0" style="-fx-background-color: #FAFAFA;">
+            <StackPane prefHeight="587.0" prefWidth="200.0" style="-fx-background-color: #FAFAFA;">
                <children>
-                      <Button graphicTextGap="0.0" prefHeight="68.0" prefWidth="205.0" text="Inicio" wrapText="true">
+                      <Button graphicTextGap="0.0" prefHeight="45.0" prefWidth="205.0" text="Inicio" wrapText="true">
                      <StackPane.margin>
-                        <Insets bottom="530.0" left="2.0" right="150.0" />
+                        <Insets bottom="570.0" left="2.0" right="150.0" top="15.0" />
                      </StackPane.margin>
                   </Button>
                       <Button styleClass="selected" text="Estudiantes">
@@ -45,7 +45,7 @@
                </TextField>
                   <Label alignment="TOP_LEFT" prefHeight="0.0" prefWidth="731.0" styleClass="header" text="Estudiantes">
                   <StackPane.margin>
-                     <Insets bottom="540.0" />
+                     <Insets bottom="540.0" top="4.0" />
                   </StackPane.margin>
                   <font>
                      <Font name="Verdana Bold" size="26.0" />
@@ -55,7 +55,7 @@
                       <columns>
                           <TableColumn text="ID" />
                           <TableColumn text="Nombre" />
-                          <TableColumn text="Correo electrónico" />
+                          <TableColumn text="Correo" />
                           <TableColumn text="Semestre" />
                           <TableColumn text="Cédula" />
                           <TableColumn text="Almuerzos" />
@@ -70,10 +70,13 @@
         </HBox>
         <VBox>
             <HBox style="-fx-background-color: #FAFAFA;">
-                <Button defaultButton="true" style="-fx-background-color: green;" styleClass="add-button" text="Añadir estudiante" textFill="#fafafa">
+                <Button defaultButton="true" prefHeight="26.0" prefWidth="218.0" style="-fx-background-color: green;" styleClass="add-button" text="Añadir estudiante" textFill="#fafafa">
                <HBox.margin>
                   <Insets bottom="20.0" left="20.0" top="20.0" />
-               </HBox.margin></Button>
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
             </HBox>
           </VBox>
         </VBox>

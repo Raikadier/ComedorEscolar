@@ -2,6 +2,7 @@
  * Empty Stylesheet file.
  */
 
-.mainFxmlClass {
-
+.v-box{
+    -fx-background-color: #E6D39E
 }
+
