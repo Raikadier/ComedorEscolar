@@ -66,9 +66,8 @@ public class Entrega {
 
     @Override
     public String toString() {
-        return "Entrega{" + "estudiante=" + estudiante + ", fechaEntrega=" + fechaEntrega + ", noAlmuerzosDisponibles=" + noAlmuerzosDisponibles + ", periodo=" + periodo + ", entregas=" + entregas + '}';
+        return "Entrega{" + "estudiante=" + estudiante.getNombre() + ", fechaEntrega=" + fechaEntrega + ", noAlmuerzosDisponibles=" + noAlmuerzosDisponibles + ", periodo=" + periodo ;
     }
-    
     
     public void retirarAlmuerzo(Estudiante e){
         System.out.println(e);
