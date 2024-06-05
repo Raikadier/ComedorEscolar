@@ -6,7 +6,7 @@ import Entidades.Empleado;
 import Entidades.Estudiante;
 import Logica.Entrega;
 import Logica.PeriodoEntrega;
-import Logica.RegistroPeriodoEntregaImpList;
+import Logica.RegistroEntregaImpList;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -22,16 +22,8 @@ public class Main {
         Empleado empleado = null;
         Estudiante estudiante = null;
         Scanner entrada = new Scanner(System.in);
+        administrador.agregarUsuario(new Administrador("lau", "123", "LAURA ALTAHONA", 1074839237, 1));
         
-        System.out.println("Por favor, antes de ingresar cree un Usuario (ADMINISTRADOR)");
-        System.out.println("NOMBRE USUARIO: "); String usuario = entrada.nextLine();
-        System.out.println("CONTRASEÑA: "); String clave = entrada.nextLine();
-        System.out.println("NOMBRE PERSONA: "); String nombreAdministrador = entrada.nextLine();
-        System.out.println("CEDULA: "); long cedAdministrador = entrada.nextLong();
-        System.out.println("TELEFONO: "); long telAdministrador = entrada.nextLong();
-        administrador.agregarUsuario(new Administrador(usuario, clave, nombreAdministrador, cedAdministrador, telAdministrador));
-        System.out.println("---------------------");
-        System.out.println("\n");
         
         finCiclo =  'S';
         while(finCiclo == 'S'){
@@ -157,7 +149,7 @@ public class Main {
                     System.out.println("1. CONTROL DE ACCESO");
                     System.out.println("2. ACTUALIZAR PERIODO");
                     int opcionEmpleado = entrada.nextInt();
-                    RegistroPeriodoEntregaImpList RegistroEntregas = new RegistroPeriodoEntregaImpList();
+                    RegistroEntregaImpList RegistroEntregas = new RegistroEntregaImpList();
                     PeriodoEntrega periodo = new PeriodoEntrega(RegistroEntregas);
                     
                     switch(opcionEmpleado){
@@ -168,8 +160,9 @@ public class Main {
                                     System.out.println("Para retirar almuerzo presione 1");
                                     int num = entrada.nextInt();
                                     if(num == 1){
-                                        Entrega entrega = new Entrega(acceso, RegistroEntregas);
+                                        Entrega entrega = new Entrega(acceso, RegistroEntregas, periodo);
                                         entrega.retirarAlmuerzo(acceso);
+                                        System.out.println(RegistroEntregas.toString());
                                     }
                                 }
                         case 2: System.out.println("Presione 1 para actualizar periodo");

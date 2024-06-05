@@ -15,12 +15,12 @@ public class PeriodoEntrega {
     protected LocalDate fechaFin;
     private boolean estado;
     private Estudiante estudiante;
-    private RegistroPeriodoEntregaImpList entregas;
+    private RegistroEntregaImpList entregas;
 
     public PeriodoEntrega() { 
     }
 
-    public PeriodoEntrega(RegistroPeriodoEntregaImpList entregas) {
+    public PeriodoEntrega(RegistroEntregaImpList entregas) {
         this.fechaInicio = LocalDate.now();
         this.fechaFin = fechaInicio.plusDays(6);
         this.estado = estado;
@@ -60,11 +60,11 @@ public class PeriodoEntrega {
         this.estudiante = estudiante;
     }
 
-    public RegistroPeriodoEntregaImpList getEntregas() {
+    public RegistroEntregaImpList getEntregas() {
         return entregas;
     }
 
-    public void setEntregas(RegistroPeriodoEntregaImpList entregas) {
+    public void setEntregas(RegistroEntregaImpList entregas) {
         this.entregas = entregas;
     }
 

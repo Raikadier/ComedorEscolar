@@ -11,16 +11,17 @@ public class Entrega {
     private LocalDate fechaEntrega;
     private int noAlmuerzosDisponibles = 3;
     private PeriodoEntrega periodo;
-    private RegistroPeriodoEntregaImpList entregas;
+    private RegistroEntregaImpList entregas;
 
     public Entrega() {
     }
 
-    public Entrega(Estudiante estudiante, RegistroPeriodoEntregaImpList entregas ) {
+    public Entrega(Estudiante estudiante, RegistroEntregaImpList entregas, PeriodoEntrega periodo ) {
         this.estudiante = estudiante;
         this.entregas = entregas;
         this.fechaEntrega = fechaEntrega;
         this.noAlmuerzosDisponibles = 3;
+        this.periodo = periodo;
     }
 
     public PeriodoEntrega getPeriodo() {
@@ -55,11 +56,11 @@ public class Entrega {
         this.noAlmuerzosDisponibles = noAlmuerzosDisponibles;
     }
 
-    public RegistroPeriodoEntregaImpList getEntregas() {
+    public RegistroEntregaImpList getEntregas() {
         return entregas;
     }
 
-    public void setEntregas(RegistroPeriodoEntregaImpList entregas) {
+    public void setEntregas(RegistroEntregaImpList entregas) {
         this.entregas = entregas;
     }
 

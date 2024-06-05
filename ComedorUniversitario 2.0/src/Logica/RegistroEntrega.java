@@ -2,7 +2,7 @@
 package Logica;
 
 
-public interface RegistroPeriodoEntrega {
+public interface RegistroEntrega {
     
     
     

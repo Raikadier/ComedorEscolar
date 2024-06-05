@@ -4,15 +4,15 @@ package Logica;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RegistroPeriodoEntregaImpList implements RegistroPeriodoEntrega {
+public class RegistroEntregaImpList implements RegistroEntrega {
     
     private List<Entrega> entregas;
 
-    public RegistroPeriodoEntregaImpList() {
+    public RegistroEntregaImpList() {
         this.entregas = new ArrayList<>();
     }
 
-    public RegistroPeriodoEntregaImpList(List<Entrega> entregas) {
+    public RegistroEntregaImpList(List<Entrega> entregas) {
         this.entregas = new ArrayList<>();
     }
 
