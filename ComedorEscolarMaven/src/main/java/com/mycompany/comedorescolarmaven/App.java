@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import javafx.stage.Window;
 
 /**
  * JavaFX App
@@ -21,7 +20,7 @@ public class App extends Application {
         scene = new Scene(loadFXML("Login"));
         stage.setScene(scene);
         stage.hide();
-        stage.setTitle("Login ...");
+        stage.setTitle("LOGIN");
         stage.show();
     }
     

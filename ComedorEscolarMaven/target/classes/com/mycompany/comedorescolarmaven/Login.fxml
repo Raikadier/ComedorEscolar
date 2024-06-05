@@ -15,24 +15,24 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane stylesheets="@/styles/login.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="741.0" prefWidth="1048.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="741.0" prefWidth="1048.0" stylesheets="@/styles/login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox alignment="CENTER" prefHeight="672.0" prefWidth="1013.0">
-         <children >
-            <VBox alignment="CENTER" prefHeight="742.0" prefWidth="579.0" styleClass="v-box" >
+         <children>
+            <VBox alignment="CENTER" prefHeight="771.0" prefWidth="542.0" style="-fx-background-color: #E6D39E">
                
-               <children >
-                  <ImageView  fitHeight="189.0" fitWidth="168.0" pickOnBounds="true" preserveRatio="true" rotate="-178.9">
+               <children>
+                  <ImageView fitHeight="189.0" fitWidth="168.0" pickOnBounds="true" preserveRatio="true" rotate="-178.9">
                      <VBox.margin>
                         <Insets bottom="10.0" left="370.0" />
                      </VBox.margin>
                      <image>
-                        <Image  url="@/imagenes/ImgLogin1.png" />
+                        <Image url="@/imagenes/ImgLogin1.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="178.0" fitWidth="185.0" pickOnBounds="true" preserveRatio="true">
                      <VBox.margin>
-                        <Insets bottom="4.0" right="350.0" top="380.0" />
+                        <Insets bottom="4.0" right="350.0" top="430.0" />
                      </VBox.margin>
                      <image>
                         <Image url="@/imagenes/ImgLogo2.png" />
@@ -40,15 +40,15 @@
                   </ImageView>
                </children>
             </VBox>
-            <VBox prefHeight="677.0" prefWidth="429.0">
+            <VBox prefHeight="770.0" prefWidth="506.0">
                <children>
                   <StackPane prefHeight="781.0" prefWidth="501.0" style="-fx-background-color: #FAFAFA;">
                      <children>
-                        <VBox prefHeight="826.0" prefWidth="505.0" style="-fx-background-color: #E7E7E7;">
+                        <VBox prefHeight="837.0" prefWidth="506.0" style="-fx-background-color: #E7E7E7;">
                            <children>
                               <ImageView fitHeight="121.0" fitWidth="121.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@/imagenes/logo proyecto (1).png" />
+                                    <Image url="@/imagenes/logo proyecto (1).png"/>
                                  </image>
                                  <viewport>
                                     <Rectangle2D />
@@ -56,7 +56,7 @@
                                  <VBox.margin>
                                     <Insets bottom="25.0" left="200.0" top="80.0" />
                                  </VBox.margin>
-                              </ImageView >
+                              </ImageView>
                               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="46.0" prefWidth="502.0" text="INICIO DE SESION">
                                  <font>
                                     <Font name="Impact" size="31.0" />
