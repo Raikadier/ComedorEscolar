@@ -9,7 +9,7 @@ public class Entrega {
     
     private Estudiante estudiante;
     private LocalDate fechaEntrega;
-    private int noAlmuerzosDisponibles = 3;
+    private int noAlmuerzosDisponibles;
     private PeriodoEntrega periodo;
     private RegistroEntregaImpList entregas;
 
@@ -66,11 +66,11 @@ public class Entrega {
 
     @Override
     public String toString() {
-        return "Entrega{" + "estudiante=" + estudiante.getNombre() + ", fechaEntrega=" + fechaEntrega + ", noAlmuerzosDisponibles=" + noAlmuerzosDisponibles + ", periodo=" + periodo ;
+        return "Entrega{" + "estudiante=" + (estudiante != null ? estudiante.getNombre() : "null") + ", fechaEntrega=" + fechaEntrega + 
+                ", noAlmuerzosDisponibles=" + noAlmuerzosDisponibles + ", periodo=" +  (periodo != null ? "PeriodoEntrega" : "null") ;
     }
     
     public void retirarAlmuerzo(Estudiante e){
-        System.out.println(e);
         boolean confirmarRetiro = periodo.confirmarRetiro(e);
         if (confirmarRetiro){
             this.noAlmuerzosDisponibles -= 1;
@@ -86,7 +86,7 @@ public class Entrega {
     
     public void actualizarRegistroAlmuerzo(Estudiante e){
         Period semana = Period.between(periodo.getFechaFin(), periodo.getFechaInicio());
-        if(semana.getDays() == 7){
+        if(semana.getDays() == 6){
             noAlmuerzosDisponibles = 3;
         }
         

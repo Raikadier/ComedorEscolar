@@ -26,7 +26,7 @@ public class RegistroEntregaImpList implements RegistroEntrega {
 
     @Override
     public String toString() {
-        return "RegistroPeriodoEntregaImpList{" + "entregas=" + entregas + '}';
+        return "RegistroEntregaImpList{" + "entregas=" + (entregas != null ? "List of Entregas" : "null") + '}';
     }
     
 
@@ -36,8 +36,10 @@ public class RegistroEntregaImpList implements RegistroEntrega {
     }
 
     @Override
-    public boolean registrarEstado() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void mostrarLista() {
+        for(Entrega entrega: this.entregas){
+            System.out.println(entrega);
+        }
     }
     
 }

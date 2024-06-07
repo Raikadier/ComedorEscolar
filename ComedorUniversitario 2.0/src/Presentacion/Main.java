@@ -162,7 +162,8 @@ public class Main {
                                     if(num == 1){
                                         Entrega entrega = new Entrega(acceso, RegistroEntregas, periodo);
                                         entrega.retirarAlmuerzo(acceso);
-                                        System.out.println(RegistroEntregas.toString());
+                                        System.out.println("LISTA DE ENTREGAS: ");
+                                        RegistroEntregas.mostrarLista();
                                     }
                                 }
                         case 2: System.out.println("Presione 1 para actualizar periodo");

@@ -70,7 +70,8 @@ public class PeriodoEntrega {
 
     @Override
     public String toString() {
-        return "Periodo{" + "fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", estado=" + estado + ", entregas=" + entregas + '}';
+        return "Periodo{" + "fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", estado=" + estado + 
+                ", entregas=" + (entregas != null ? "RegistroEntregaImpList" : "null")  + '}';
     }
     
     public void actualizarPeriodo(){
