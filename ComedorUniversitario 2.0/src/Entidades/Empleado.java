@@ -28,6 +28,10 @@ public class Empleado extends Usuario{
    
     @Override
     public boolean verificarLogin(String nom, String contra) {
+        
+        if(administrador == null){
+            return false;
+        }
         for(Usuario u: administrador.getListaUsuarios()){
             if(u.getNombreUsuario().equalsIgnoreCase(nom) && u.getContraseña().equalsIgnoreCase(contra) && u instanceof Empleado){
                 return true;

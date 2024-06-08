@@ -1,6 +1,7 @@
 
 package com.mycompany.Logica;
 
+import Entidades.Estudiante;
 import com.mycompany.Datos.Estudiante;
 import java.time.LocalDate;
 import java.time.Period;
@@ -9,16 +10,19 @@ public class Entrega {
     
     private Estudiante estudiante;
     private LocalDate fechaEntrega;
-    private int noAlmuerzosDisponibles = 3;
+    private int noAlmuerzosDisponibles;
     private PeriodoEntrega periodo;
+    private RegistroEntregaImpList entregas;
 
     public Entrega() {
     }
 
-    public Entrega(Estudiante estudiante, LocalDate fechaEntrega, int noAlmuerzosDisponibles) {
+    public Entrega(Estudiante estudiante, RegistroEntregaImpList entregas, PeriodoEntrega periodo ) {
         this.estudiante = estudiante;
+        this.entregas = entregas;
         this.fechaEntrega = fechaEntrega;
         this.noAlmuerzosDisponibles = 3;
+        this.periodo = periodo;
     }
 
     public PeriodoEntrega getPeriodo() {
@@ -52,14 +56,28 @@ public class Entrega {
     public void setNoAlmuerzosDisponibles(int noAlmuerzosDisponibles) {
         this.noAlmuerzosDisponibles = noAlmuerzosDisponibles;
     }
-    
+
+    public RegistroEntregaImpList getEntregas() {
+        return entregas;
+    }
+
+    public void setEntregas(RegistroEntregaImpList entregas) {
+        this.entregas = entregas;
+    }
+
+    @Override
+    public String toString() {
+        return "Entrega{" + "estudiante=" + (estudiante != null ? estudiante.getNombre() : "null") + ", fechaEntrega=" + fechaEntrega + 
+                ", noAlmuerzosDisponibles=" + noAlmuerzosDisponibles + ", periodo=" +  (periodo != null ? "PeriodoEntrega" : "null") ;
+    }
     
     public void retirarAlmuerzo(Estudiante e){
-        boolean confirmarRetiro = periodo.confirmarRetiro();
+        boolean confirmarRetiro = periodo.confirmarRetiro(e);
         if (confirmarRetiro){
             this.noAlmuerzosDisponibles -= 1;
-            periodo.registrarEntregas(this);
             this.fechaEntrega = LocalDate.now();
+            entregas.registrarEntrega(this);
+            
         }
         else{
             System.out.println("No tiene mas almuerzos disponibles");
@@ -69,7 +87,7 @@ public class Entrega {
     
     public void actualizarRegistroAlmuerzo(Estudiante e){
         Period semana = Period.between(periodo.getFechaFin(), periodo.getFechaInicio());
-        if(semana.getDays() == 7){
+        if(semana.getDays() == 6){
             noAlmuerzosDisponibles = 3;
         }
         

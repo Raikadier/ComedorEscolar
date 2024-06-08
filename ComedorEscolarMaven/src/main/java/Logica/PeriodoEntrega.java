@@ -1,5 +1,5 @@
 
-package Logica;
+package com.mycompany.Logica;
 
 import Entidades.Estudiante;
 import Logica.Entrega;

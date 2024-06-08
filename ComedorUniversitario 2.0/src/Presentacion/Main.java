@@ -7,6 +7,7 @@ import Entidades.Estudiante;
 import Logica.Entrega;
 import Logica.PeriodoEntrega;
 import Logica.RegistroEntregaImpList;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -14,70 +15,63 @@ public class Main {
 
     public static void main(String[] args) {
         
-        char finCiclo;
-        int opc;
-        int op;
+        String finCiclo;
+        int opc=0;
+        char op;
         int opcAdmin;
         Administrador administrador = new Administrador();
-        Empleado empleado = null;
+        Empleado empleado = new Empleado();
         Estudiante estudiante = null;
         Scanner entrada = new Scanner(System.in);
         administrador.agregarUsuario(new Administrador("lau", "123", "LAURA ALTAHONA", 1074839237, 1));
+        RegistroEntregaImpList RegistroEntregas = new RegistroEntregaImpList();
+        PeriodoEntrega periodo = new PeriodoEntrega(RegistroEntregas);
         
+        DayOfWeek diaSemana = LocalDate.now().getDayOfWeek();
+        if(diaSemana == DayOfWeek.MONDAY){
+            periodo.actualizarPeriodo();
+        }
+
+        finCiclo =  "S";
+        while(finCiclo == "S"){
+            System.out.println("NOMBRE USUARIO: ");
+            String user = entrada.nextLine();
+            System.out.println("CONTRASEÑA: ");
+            String pass = entrada.nextLine();
+            System.out.println("--------------------------");
+            boolean entradaAdmi = administrador.verificarLogin(user, pass);
+            boolean entradaEmpleado = empleado.verificarLogin(user, pass);
         
-        finCiclo =  'S';
-        while(finCiclo == 'S'){
-            do{
-            System.out.println("BIENVENIDO AL PORTAL");
-            System.out.println("   DIGITE OPCION");
-            System.out.println("----------------------");
-            System.out.println("1. ADMINISTRACION");
-            System.out.println("2. EMPLEADO");
-            System.out.println("3. SALIR");
-            opc = entrada.nextInt();
-        } while ((opc < 1) || (opc > 3));
-        
-        switch(opc){
-            
-            case 1:  System.out.println("\n");
-                System.out.println("1. ADMINISTRACION");
-                System.out.println("Verificar Login (ADMINISTRADOR)");
-                System.out.println("nombre usuario: ");
-                entrada.nextLine();
-                String nomUsuario = entrada.nextLine();
-                System.out.println("contraseña: "); String contraseña = entrada.nextLine();
-                System.out.println("----------------------");
-                boolean confirmar = administrador.verificarLogin(nomUsuario, contraseña);
-                if(confirmar){
-                    op = 's';
-                    while(op == 's'){
-                        do{
-                            System.out.println("1. AGREGAR USUARIO");
-                            System.out.println("2. AGREGAR ESTUDIANTE");
-                            System.out.println("3. BORRAR ESTUDIANTE");
-                            System.out.println("4. BUSCAR ESTUDIANTE");
-                            System.out.println("5. BORRAR USUARIO");
-                            System.out.println("6. ACTUALIZAR ESTUDIANTE");
-                            System.out.println("7. SALIR");
-                            opcAdmin = entrada.nextInt();
-                        } while (opcAdmin < 1 || opcAdmin > 7);
-                        switch(opcAdmin){
-                            case 1:  System.out.println("REGISTRO DE USUARIOS (EMPLEADOS)");
-                                     System.out.println("nombre usuario: ");
-                                     entrada.nextLine();
-                                     String userEmpleado = entrada.nextLine();
-                                     System.out.println("contraseña: ");
-                                     String claveEmpleado = entrada.nextLine();
-                                     System.out.println("NOMBRE PERSONA: "); String nombreEmpleado = entrada.nextLine();
-                                     System.out.println("CEDULA: "); long cedEmpleado = entrada.nextLong();
-                                     System.out.println("TELEFONO: "); long telEmpleado = entrada.nextLong();
-                                     empleado = new Empleado(administrador, userEmpleado, claveEmpleado, nombreEmpleado, cedEmpleado, telEmpleado);
-                                     administrador.agregarUsuario(empleado);
-                                     System.out.println("----------------------");
-                                     System.out.println("\n");
-                                     break;                          
-                            case 2:  
-                                     System.out.println("Registro de Estudiante: ");
+            if(entradaAdmi == true){
+                op = 'S';
+                while(op == 'S'){
+                    do{
+                        System.out.println("1. AGREGAR USUARIO");
+                        System.out.println("2. AGREGAR ESTUDIANTE");
+                        System.out.println("3. BORRAR ESTUDIANTE");
+                        System.out.println("4. BUSCAR ESTUDIANTE");
+                        System.out.println("5. BORRAR USUARIO");
+                        System.out.println("6. ACTUALIZAR ESTUDIANTE");
+                        System.out.println("7. SALIR");
+                        opcAdmin = entrada.nextInt();
+                    } while (opcAdmin < 1 || opcAdmin > 7);
+                    switch(opcAdmin){
+                        case 1:  System.out.println("REGISTRO DE USUARIOS (EMPLEADOS)");
+                                 System.out.println("nombre usuario: ");
+                                 entrada.nextLine();
+                                 String userEmpleado = entrada.nextLine();
+                                 System.out.println("contraseña: ");
+                                 String claveEmpleado = entrada.nextLine();
+                                 System.out.println("NOMBRE PERSONA: "); String nombreEmpleado = entrada.nextLine();
+                                 System.out.println("CEDULA: "); long cedEmpleado = entrada.nextLong();
+                                 System.out.println("TELEFONO: "); long telEmpleado = entrada.nextLong();
+                                 empleado = new Empleado(administrador, userEmpleado, claveEmpleado, nombreEmpleado, cedEmpleado, telEmpleado);
+                                 administrador.agregarUsuario(empleado);
+                                 System.out.println("----------------------");
+                                 System.out.println("\n");
+                                 break;  
+                                     
+                        case 2:      System.out.println("Registro de Estudiante: ");
                                      System.out.println("Nombre Estudiante: ");
                                      entrada.nextLine();
                                      String nomEstudiante = entrada.nextLine();
@@ -127,30 +121,12 @@ public class Main {
                         }
                     }
                     
-                }
-                else{
-                    System.out.println("Usuario incorrecto / no registrado");
-                }
-                break;
-                
-            case 2:  System.out.println("2. CONTROL DE ACCESO");
-                System.out.println("Verificar Login (EMPLEADO)");
-                System.out.println("----------------------");
-                System.out.println("nombre usuario: ");
-                entrada.nextLine();
-                String userEmpleado = entrada.nextLine();
-                System.out.println("contraseña: ");
-                String contraEmpleado = entrada.nextLine();
-                
-                boolean verificar = empleado.verificarLogin(userEmpleado, contraEmpleado);
-                System.out.println("----------------------");
-                System.out.println("\n");
-                if(verificar){
+        }
+                     
+        else if (entradaEmpleado == true){
                     System.out.println("1. CONTROL DE ACCESO");
-                    System.out.println("2. ACTUALIZAR PERIODO");
+                    System.out.println("2. SALIR");
                     int opcionEmpleado = entrada.nextInt();
-                    RegistroEntregaImpList RegistroEntregas = new RegistroEntregaImpList();
-                    PeriodoEntrega periodo = new PeriodoEntrega(RegistroEntregas);
                     
                     switch(opcionEmpleado){
                         case 1:  System.out.println("Ingrese cedula del estudiante");
@@ -166,27 +142,18 @@ public class Main {
                                         RegistroEntregas.mostrarLista();
                                     }
                                 }
-                        case 2: System.out.println("Presione 1 para actualizar periodo");
-                                int actualizar = entrada.nextInt();
-                                if(actualizar == 1){
-                                    periodo.actualizarPeriodo();
-                                }
+                                break;
+                        case 2: op = 'N';
                     }
-                }
-                else{
-                    System.out.println("Usuario incorrecto / no registrado");
-                }
-                System.out.println("----------------------");
-                System.out.println("\n");
-                break;
-            case 3: finCiclo = 'N';
-           
+            }
+            else{
+                System.out.println("USUARIO INCORRECTO / NO REGISTRADO");
+                System.out.println("-----------------------------------");
+            }   
+
         }
-        }
-       
-        
-        
     }
+    
     
     
 }
