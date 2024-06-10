@@ -125,6 +125,11 @@ public class Administrador extends Usuario implements Registro{
     }
     
     @Override
+    public List<Estudiante> obtenerEstudiantes(){
+        return this.listaEstudiantes;
+    }
+    
+    @Override
     public void actualizarEstudiante(long cedula){
         
     }

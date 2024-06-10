@@ -51,7 +51,7 @@ public class Main {
                         System.out.println("3. BORRAR ESTUDIANTE");
                         System.out.println("4. BUSCAR ESTUDIANTE");
                         System.out.println("5. BORRAR USUARIO");
-                        System.out.println("6. ACTUALIZAR ESTUDIANTE");
+                        System.out.println("6. OBTENER ESTUDIANTES");
                         System.out.println("7. SALIR");
                         opcAdmin = entrada.nextInt();
                     } while (opcAdmin < 1 || opcAdmin > 7);
@@ -114,6 +114,10 @@ public class Main {
                                      administrador.borrarUsuario(nombreUsuario);
                                      System.out.println("----------------------");
                                      System.out.println("\n");
+                                     break;
+                                     
+                            case 6:  System.out.println("LISTA DE ESTUDIANTES: ");
+                                     System.out.println(administrador.obtenerEstudiantes());
                                      break;
                                      
                             case 7:  op = 'n';

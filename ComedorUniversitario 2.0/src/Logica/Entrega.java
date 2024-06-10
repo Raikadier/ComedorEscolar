@@ -66,7 +66,7 @@ public class Entrega {
 
     @Override
     public String toString() {
-        return "Entrega{" + "estudiante=" + (estudiante != null ? estudiante.getNombre() : "null") + ", fechaEntrega=" + fechaEntrega + 
+        return "Entrega{" + "estudiante= " + (estudiante != null ? estudiante.getNombre() + estudiante.getCedula() : "null") + ", fechaEntrega=" + fechaEntrega + 
                 ", noAlmuerzosDisponibles=" + noAlmuerzosDisponibles + ", periodo=" +  (periodo != null ? "PeriodoEntrega" : "null") ;
     }
     

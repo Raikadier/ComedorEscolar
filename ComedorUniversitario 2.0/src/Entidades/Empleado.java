@@ -19,8 +19,15 @@ public class Empleado extends Usuario{
         this.administrador = administrador;
     }
 
+    public Administrador getAdministrador() {
+        return administrador;
+    }
+
+    public void setAdministrador(Administrador administrador) {
+        this.administrador = administrador;
+    }
+
     
-  
     @Override
     public String toString() {
         return "(Empleado)"+"\n" + super.toString();
