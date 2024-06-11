@@ -17,9 +17,6 @@ public abstract class Usuario extends Persona{
         this.contraseña = contraseña;
     }
 
-    
-    
-
     public String getNombreUsuario() {
         return nombreUsuario;
     }
@@ -41,6 +38,9 @@ public abstract class Usuario extends Persona{
         return "Usuario -> " + "nombreUsuario: " + nombreUsuario + ", contrase\u00f1a: " + contraseña ;
     }
     
+    public String dataFile(){
+        return this.nombreUsuario+";"+ this.contraseña+";"+this.nombre+";"+this.cedula+";"+this.telefono;
+    }
     
     public abstract boolean verificarLogin(String nom, String contra);
 

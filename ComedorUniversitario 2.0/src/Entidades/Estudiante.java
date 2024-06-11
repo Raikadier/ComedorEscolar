@@ -67,6 +67,8 @@ public class Estudiante extends Persona {
     }
     
     
-    
+    public String dataFile(){
+        return this.nombre +";"+ this.cedula+";"+this.correo+";"+this.carrera+";"+this.semestre+";"+this.telefono;
+    }
     
 }
