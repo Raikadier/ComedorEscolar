@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane stylesheets="@/styles/administradorhome.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <VBox>
+        <HBox styleClass="sidebar">
+            <VBox prefHeight="509.0" prefWidth="232.0">
+            <StackPane prefHeight="653.0" prefWidth="200.0" style="-fx-background-color: #FAFAFA;">
+               <children>
+                      <Button graphicTextGap="0.0" prefHeight="45.0" prefWidth="205.0" style="-fx-background-color: #D3EEC6;" text="Inicio" wrapText="true">
+                     <StackPane.margin>
+                        <Insets bottom="570.0" left="3.0" right="180.0" top="15.0" />
+                     </StackPane.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                      <Button style="-fx-background-color: #D3EEC6;" styleClass="selected" text="Estudiantes">
+                     <StackPane.margin>
+                        <Insets bottom="490.0" left="3.0" right="150.0" />
+                     </StackPane.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                      <Button style="-fx-background-color: #D3EEC6;" text="Empleados">
+                     <StackPane.margin>
+                        <Insets bottom="430.0" left="3.0" right="150.0" />
+                     </StackPane.margin>
+                  </Button>
+               </children>
+            </StackPane>
+            </VBox>
+         <StackPane prefHeight="514.0" prefWidth="739.0" style="-fx-background-color: #FAFAFA;">
+            <children>
+                   <TextField alignment="TOP_LEFT" prefHeight="26.0" prefWidth="564.0" promptText="Buscar estudiante" styleClass="search-box">
+                  <StackPane.margin>
+                     <Insets bottom="470.0" left="2.0" right="45.0" top="4.0" />
+                  </StackPane.margin>
+               </TextField>
+                  <Label alignment="TOP_LEFT" prefHeight="0.0" prefWidth="731.0" styleClass="header" text="Estudiantes">
+                  <StackPane.margin>
+                     <Insets bottom="560.0" top="4.0" />
+                  </StackPane.margin>
+                  <font>
+                     <Font name="Verdana Bold" size="26.0" />
+                  </font>
+               </Label>
+                  <TableView prefHeight="538.0" prefWidth="739.0" style="-fx-background-color: #FAFAFA;">
+                      <columns>
+                          <TableColumn minWidth="30.0" prefWidth="110.0" text="ID" />
+                          <TableColumn prefWidth="110.0" text="Nombre" />
+                          <TableColumn prefWidth="110.0" text="Correo" />
+                          <TableColumn prefWidth="100.0" text="Semestre" />
+                          <TableColumn prefWidth="100.0" text="Cédula" />
+                          <TableColumn prefWidth="100.0" text="Almuerzos" />
+                          <TableColumn prefWidth="100.0" text="Acciones" />
+                      </columns>
+                  <StackPane.margin>
+                     <Insets top="100.0" />
+                  </StackPane.margin>
+                  </TableView>
+            </children>
+         </StackPane>
+        </HBox>
+        <VBox>
+            <HBox prefHeight="49.0" prefWidth="971.0" style="-fx-background-color: #FAFAFA;">
+                <Button defaultButton="true" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: green;" styleClass="add-button" text="Añadir estudiante" textFill="#fafafa">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="2.0" top="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            </HBox>
+          </VBox>
+        </VBox>
+      </AnchorPane>
