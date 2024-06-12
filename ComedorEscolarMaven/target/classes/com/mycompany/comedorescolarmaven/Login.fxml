@@ -53,6 +53,9 @@
                                  <VBox.margin>
                                     <Insets bottom="25.0" left="200.0" top="80.0" />
                                  </VBox.margin>
+                                 <image>
+                                    <Image url="@/imagenes/logo proyecto (1).png" />
+                                 </image>
                               </ImageView>
                               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="46.0" prefWidth="502.0" text="INICIO DE SESION">
                                  <font>

@@ -1,3 +1,25 @@
+<<<<<<< HEAD
+C:\Users\NATALIA\OneDrive\Documentos\PROYECTO PROGRAMACION\ComedorEscolar\ComedorEscolarMaven\src\main\java\com\mycompany\Presentacion\App.java
+C:\Users\NATALIA\OneDrive\Documentos\PROYECTO PROGRAMACION\ComedorEscolar\ComedorEscolarMaven\src\main\java\com\mycompany\Entidades\Empleado.java
+C:\Users\NATALIA\OneDrive\Documentos\PROYECTO PROGRAMACION\ComedorEscolar\ComedorEscolarMaven\src\main\java\com\mycompany\Logica\RegistroEntrega.java
+C:\Users\NATALIA\OneDrive\Documentos\PROYECTO PROGRAMACION\ComedorEscolar\ComedorEscolarMaven\src\main\java\com\mycompany\Presentacion\PrimaryController.java
+C:\Users\NATALIA\OneDrive\Documentos\PROYECTO PROGRAMACION\ComedorEscolar\ComedorEscolarMaven\src\main\java\com\mycompany\Presentacion\SecondaryController.java
+C:\Users\NATALIA\OneDrive\Documentos\PROYECTO PROGRAMACION\ComedorEscolar\ComedorEscolarMaven\src\main\java\com\mycompany\Logica\PeriodoEntrega.java
+C:\Users\NATALIA\OneDrive\Documentos\PROYECTO PROGRAMACION\ComedorEscolar\ComedorEscolarMaven\src\main\java\com\mycompany\Datos\AEstudiante.java
+C:\Users\NATALIA\OneDrive\Documentos\PROYECTO PROGRAMACION\ComedorEscolar\ComedorEscolarMaven\src\main\java\com\mycompany\Entidades\Persona.java
+C:\Users\NATALIA\OneDrive\Documentos\PROYECTO PROGRAMACION\ComedorEscolar\ComedorEscolarMaven\src\main\java\com\mycompany\Entidades\Estudiante.java
+C:\Users\NATALIA\OneDrive\Documentos\PROYECTO PROGRAMACION\ComedorEscolar\ComedorEscolarMaven\src\main\java\com\mycompany\Datos\IEstudiante.java
+C:\Users\NATALIA\OneDrive\Documentos\PROYECTO PROGRAMACION\ComedorEscolar\ComedorEscolarMaven\src\main\java\com\mycompany\Presentacion\EmpleadoHomeController.java
+C:\Users\NATALIA\OneDrive\Documentos\PROYECTO PROGRAMACION\ComedorEscolar\ComedorEscolarMaven\src\main\java\com\mycompany\Presentacion\AdministradorHomeController.java
+C:\Users\NATALIA\OneDrive\Documentos\PROYECTO PROGRAMACION\ComedorEscolar\ComedorEscolarMaven\src\main\java\com\mycompany\Logica\Entrega.java
+C:\Users\NATALIA\OneDrive\Documentos\PROYECTO PROGRAMACION\ComedorEscolar\ComedorEscolarMaven\src\main\java\com\mycompany\Datos\AUsuario.java
+C:\Users\NATALIA\OneDrive\Documentos\PROYECTO PROGRAMACION\ComedorEscolar\ComedorEscolarMaven\src\main\java\com\mycompany\Datos\IUsuario.java
+C:\Users\NATALIA\OneDrive\Documentos\PROYECTO PROGRAMACION\ComedorEscolar\ComedorEscolarMaven\src\main\java\com\mycompany\Entidades\Registro.java
+C:\Users\NATALIA\OneDrive\Documentos\PROYECTO PROGRAMACION\ComedorEscolar\ComedorEscolarMaven\src\main\java\com\mycompany\Entidades\Administrador.java
+C:\Users\NATALIA\OneDrive\Documentos\PROYECTO PROGRAMACION\ComedorEscolar\ComedorEscolarMaven\src\main\java\com\mycompany\Entidades\Usuario.java
+C:\Users\NATALIA\OneDrive\Documentos\PROYECTO PROGRAMACION\ComedorEscolar\ComedorEscolarMaven\src\main\java\com\mycompany\Logica\RegistroEntregaImpList.java
+C:\Users\NATALIA\OneDrive\Documentos\PROYECTO PROGRAMACION\ComedorEscolar\ComedorEscolarMaven\src\main\java\com\mycompany\Presentacion\LoginController.java
+=======
 C:\Users\User\Documents\PROYECTO PROG 2\ComedorEscolar\ComedorEscolarMaven\src\main\java\com\mycompany\Entidades\Persona.java
 C:\Users\User\Documents\PROYECTO PROG 2\ComedorEscolar\ComedorEscolarMaven\src\main\java\com\mycompany\Datos\AUsuario.java
 C:\Users\User\Documents\PROYECTO PROG 2\ComedorEscolar\ComedorEscolarMaven\src\main\java\com\mycompany\Entidades\Administrador.java
@@ -18,3 +40,4 @@ C:\Users\User\Documents\PROYECTO PROG 2\ComedorEscolar\ComedorEscolarMaven\src\m
 C:\Users\User\Documents\PROYECTO PROG 2\ComedorEscolar\ComedorEscolarMaven\src\main\java\com\mycompany\Logica\Entrega.java
 C:\Users\User\Documents\PROYECTO PROG 2\ComedorEscolar\ComedorEscolarMaven\src\main\java\com\mycompany\Presentacion\LoginController.java
 C:\Users\User\Documents\PROYECTO PROG 2\ComedorEscolar\ComedorEscolarMaven\src\main\java\com\mycompany\Entidades\Usuario.java
+>>>>>>> 632893e6203536606cb2076ff8c19dd99d812667
