@@ -119,6 +119,7 @@ public class AEstudiante implements IEstudiante {
                     pw.println(linea); 
                 }
             }
+            
         } catch (IOException e) {
             e.printStackTrace(); // Manejo básico de errores
             return false;
@@ -132,17 +133,24 @@ public class AEstudiante implements IEstudiante {
         }
 
     // Renombrar el archivo temporal como el archivo original
-    if (!archivoTemporal.renameTo(this.manejoArchivo)) {
-        System.out.println("No se pudo renombrar el archivo temporal.");
+    if(this.manejoArchivo.delete()){
+        if (archivoTemporal.renameTo(this.manejoArchivo)) {
+            return true;
+        } else{
+            System.out.println("No se pudo renombrar");
+            return false;
+        }
+        
+    } else{
+        System.out.println("No se pudo borrar");
         return false;
     }
 
-    return true;
 
 }
 
     @Override
-    public List<Estudiante> obtenerEstudiantes() {
+    public ArrayList<Estudiante> obtenerEstudiantes() {
         ArrayList<Estudiante> estudiantes = new ArrayList();
         
         if(!this.manejoArchivo.exists()){

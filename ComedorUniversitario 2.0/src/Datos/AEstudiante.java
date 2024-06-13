@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -52,11 +53,17 @@ public class AEstudiante implements IEstudiante {
     @Override
     public boolean agregarEstudiante(Estudiante e) {
         PrintWriter pw = null;
+        
         try {
-            this.escrituraArc = new FileWriter(this.manejoArchivo, true);
-            pw = new PrintWriter(this.escrituraArc);
-            pw.println(e.dataFile());
-            return true;
+            Estudiante est = this.buscarEstudiante(e.getCedula());
+            if(est == null){
+                this.escrituraArc = new FileWriter(this.manejoArchivo, true);
+                pw = new PrintWriter(this.escrituraArc);
+                pw.println(e.dataFile());
+                return true;
+            } else{
+                return false;
+            }
         } catch (IOException ioe) {
             System.out.println("No se pudo guardar");
             return false;
@@ -102,12 +109,72 @@ public class AEstudiante implements IEstudiante {
 
     @Override
     public boolean borrarEstudiante(long cedula) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        File archivoTemporal = new File("temp.dat"); 
+        PrintWriter pw = null;
+        Scanner scanner = null;
+
+        try {
+            archivoTemporal.createNewFile(); // Crea un nuevo archivo temporal
+            pw = new PrintWriter(archivoTemporal);
+            scanner = new Scanner(this.manejoArchivo);
+
+            while (scanner.hasNextLine()) {
+                String linea = scanner.nextLine();
+                Estudiante estudiante = convertirAEstudiante(linea);
+                if (estudiante.getCedula() != cedula) {
+                    pw.println(linea); 
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace(); // Manejo básico de errores
+            return false;
+        } finally {
+            if (scanner != null) {
+                scanner.close();
+            }
+            if (pw != null) {
+                pw.close();
+            }
+        }
+
+    // Renombrar el archivo temporal como el archivo original
+    if(this.manejoArchivo.delete()){
+        if (archivoTemporal.renameTo(this.manejoArchivo)) {
+            return true;
+        } else{
+            System.out.println("No se pudo renombrar");
+            return false;
+        }
+        
+    } else{
+        System.out.println("No se pudo borrar");
+        return false;
     }
+  }
 
     @Override
-    public List<Estudiante> obtenerEstudiantes() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public ArrayList<Estudiante> obtenerEstudiantes() {
+         ArrayList<Estudiante> estudiantes = new ArrayList();
+        
+        if(!this.manejoArchivo.exists()){
+            return estudiantes;
+        }
+        try{
+            this.lectura = new Scanner(this.manejoArchivo);
+            while(this.lectura.hasNext()){
+                String data = this.lectura.nextLine();
+                Estudiante e = this.convertirAEstudiante(data);
+                estudiantes.add(e);
+            }
+        } catch (FileNotFoundException ex) {
+            System.out.println("No fue posible abrir el archivo para lectura");
+        }
+        finally{
+            if(this.lectura!=null){
+                this.lectura.close();
+            }
+        }
+        return estudiantes;
     }
 
 }

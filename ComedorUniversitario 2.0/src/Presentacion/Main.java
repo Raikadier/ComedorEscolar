@@ -5,10 +5,12 @@ import Entidades.Administrador;
 import Entidades.Empleado;
 import Entidades.Estudiante;
 import Logica.Entrega;
+import Logica.GestionEstudiante;
 import Logica.PeriodoEntrega;
 import Logica.RegistroEntregaImpList;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -22,6 +24,7 @@ public class Main {
         Administrador administrador = new Administrador();
         Empleado empleado = new Empleado();
         Estudiante estudiante = null;
+        GestionEstudiante modelo = new GestionEstudiante();
         Scanner entrada = new Scanner(System.in);
         administrador.agregarUsuario(new Administrador("lau", "123", "LAURA ALTAHONA", 1074839237, 1));
         RegistroEntregaImpList RegistroEntregas = new RegistroEntregaImpList();
@@ -71,7 +74,7 @@ public class Main {
                                  System.out.println("\n");
                                  break;  
                                      
-                        case 2:      System.out.println("Registro de Estudiante: ");
+                        case 2:      /*System.out.println("Registro de Estudiante: ");
                                      System.out.println("Nombre Estudiante: ");
                                      entrada.nextLine();
                                      String nomEstudiante = entrada.nextLine();
@@ -86,7 +89,12 @@ public class Main {
                                      System.out.println("semestre Estudiante: ");
                                      int semEstudiante = entrada.nextInt();
                                      estudiante = new Estudiante(carreraEstudiante, correoEstudiante, semEstudiante, nomEstudiante, cedEstudiante, telEstudiante);
-                                     administrador.agregarEstudiante(estudiante);
+                                    
+                                     boolean agregar = modelo.agregarEstudiante(estudiante);*/
+                                     System.out.println("cedula para borrar: "); long modeloced = entrada.nextLong();
+                                     boolean borrar = modelo.borrarEstudiante(modeloced);
+                                     ArrayList <Estudiante> estudiantes = (ArrayList <Estudiante>) modelo.obtenerEstudiantes();
+                                     System.out.println(estudiantes);
                                      System.out.println("----------------------");
                                      System.out.println("\n");
                                      break;
