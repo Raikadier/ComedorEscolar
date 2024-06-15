@@ -11,7 +11,7 @@
 
 <GridPane alignment="center" hgap="10" style="-fx-padding: 20px;                   -fx-hgap: 10px;                   -fx-vgap: 10px;                   -fx-background-color: #f9f9f9;                   -fx-border-color: #e0e0e0;                   -fx-border-width: 1px;                   -fx-border-radius: 5px;                   -fx-background-radius: 5px;" vgap="10" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
 
-    <Label style="-fx-text-fill: #000000; -fx-font-size: 20px;" text="Agregar Estudiante" GridPane.columnSpan="2" GridPane.halignment="CENTER">
+    <Label style="-fx-text-fill: #000000; -fx-font-size: 20px;" text="Agregar Empleado" GridPane.columnSpan="2" GridPane.halignment="CENTER">
       <font>
          <Font name="Verdana Bold" size="12.0" />
       </font></Label>
@@ -25,25 +25,16 @@
     <Label style="-fx-text-fill: #000000; -fx-font-size: 14px;" text="Nombre completo" GridPane.rowIndex="2" />
     <TextField fx:id="nombreCompletoField" style="-fx-pref-width: 300px; -fx-padding: 5px;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-    <Label style="-fx-text-fill: #000000; -fx-font-size: 14px;" text="Correo electrónico" GridPane.rowIndex="3" />
-    <TextField fx:id="correoElectronicoField" style="-fx-pref-width: 300px; -fx-padding: 5px;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+    <Label style="-fx-text-fill: #000000; -fx-font-size: 14px;" text="Nombre Usuario" GridPane.rowIndex="4" />
+    <TextField fx:id="nombreUsuarioField" style="-fx-pref-width: 300px; -fx-padding: 5px;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
-    <Label style="-fx-text-fill: #000000; -fx-font-size: 14px;" text="Semestre" GridPane.rowIndex="4" />
-    <ComboBox fx:id="semestreComboBox" style="-fx-pref-width: 300px; -fx-padding: 5px;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-
-    <Label style="-fx-text-fill: #000000; -fx-font-size: 14px;" text="Número de identificación" GridPane.rowIndex="5" />
+    <Label style="-fx-text-fill: #000000; -fx-font-size: 14px;" text="Contraseña" GridPane.rowIndex="5" />
     <TextField fx:id="numeroIdentificacionField" style="-fx-pref-width: 300px; -fx-padding: 5px;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-
-    <Label style="-fx-text-fill: #000000; -fx-font-size: 14px;" text="Almuerzos" GridPane.rowIndex="6" />
-    <TextField fx:id="almuerzosField" style="-fx-pref-width: 300px; -fx-padding: 5px;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
 
     <Label style="-fx-text-fill: #000000; -fx-font-size: 14px;" text="Teléfono" GridPane.rowIndex="7" />
     <TextField fx:id="telefonoField" style="-fx-pref-width: 300px; -fx-padding: 5px;" GridPane.columnIndex="1" GridPane.rowIndex="7" />
 
-    <Label style="-fx-text-fill: #000000; -fx-font-size: 14px;" text="Pregrado" GridPane.rowIndex="8" />
-    <ComboBox fx:id="pregradoComboBox" style="-fx-pref-width: 300px; -fx-padding: 5px;" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-
-    <Button fx:id="agregarEstudianteButton" style="-fx-background-color: #28a745;                     -fx-text-fill: #ffffff;                     -fx-font-size: 14px;                     -fx-padding: 10px 20px;                     -fx-background-radius: 5px;" text="Agregar Estudiante" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="9">
+    <Button fx:id="agregarEmpleadoButton" style="-fx-background-color: #28a745;                     -fx-text-fill: #ffffff;                     -fx-font-size: 14px;                     -fx-padding: 10px 20px;                     -fx-background-radius: 5px;" text="Agregar Empleado" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="9">
       <font>
          <Font name="Verdana Bold" size="12.0" />
       </font></Button>

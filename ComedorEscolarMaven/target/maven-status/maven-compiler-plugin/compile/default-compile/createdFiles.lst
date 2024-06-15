@@ -2,14 +2,12 @@ com\mycompany\Logica\PeriodoEntrega.class
 com\mycompany\Datos\AUsuario.class
 com\mycompany\Logica\Entrega.class
 com\mycompany\Entidades\Usuario.class
-com\mycompany\Entidades\Administrador.class
 com\mycompany\Logica\RegistroEntrega.class
 com\mycompany\Logica\RegistroEntregaImpList.class
 com\mycompany\Datos\IUsuario.class
 com\mycompany\Presentacion\App.class
 com\mycompany\Presentacion\AdministradorHomeController.class
 com\mycompany\Entidades\Registro.class
-com\mycompany\Entidades\Empleado.class
 com\mycompany\Presentacion\PrimaryController.class
 com\mycompany\Presentacion\EmpleadoHomeController.class
 com\mycompany\Datos\IEstudiante.class
