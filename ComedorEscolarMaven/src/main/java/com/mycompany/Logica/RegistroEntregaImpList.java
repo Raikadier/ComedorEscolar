@@ -31,8 +31,8 @@ public class RegistroEntregaImpList implements RegistroEntrega {
     
 
     @Override
-    public void registrarEntrega(Entrega entrega) {
-        entregas.add(entrega);
+    public boolean registrarEntrega(Entrega entrega) {
+        return entregas.add(entrega);
     }
 
     @Override

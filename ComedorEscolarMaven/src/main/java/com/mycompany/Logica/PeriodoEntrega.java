@@ -3,30 +3,33 @@ package com.mycompany.Logica;
 
 import com.mycompany.Entidades.Estudiante;
 import com.mycompany.Logica.Entrega;
+import java.io.File;
+import java.io.IOException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class PeriodoEntrega {
     
     protected LocalDate fechaInicio;
     protected LocalDate fechaFin;
-    private boolean estado;
     private Estudiante estudiante;
-    private RegistroEntregaImpList entregas;
+    private ARegistroEntrega entregas;
+    private PeriodoEntrega ultimoPeriodoValido;
 
     public PeriodoEntrega() { 
     }
 
-    public PeriodoEntrega(RegistroEntregaImpList entregas) {
+    public PeriodoEntrega(LocalDate fechaInicio, LocalDate fechaFin, ARegistroEntrega entregas) {
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
-        this.estado = estado;
         this.entregas = entregas;
-        this.estudiante = estudiante;
     }
+
+    
 
     public LocalDate getFechaInicio() {
         return fechaInicio;
@@ -44,14 +47,6 @@ public class PeriodoEntrega {
         this.fechaFin = fechaFin;
     }
 
-    public boolean isEstado() {
-        return estado;
-    }
-
-    public void setEstado(boolean estado) {
-        this.estado = estado;
-    }
-
     public Estudiante getEstudiante() {
         return estudiante;
     }
@@ -60,49 +55,82 @@ public class PeriodoEntrega {
         this.estudiante = estudiante;
     }
 
-    public RegistroEntregaImpList getEntregas() {
+    public ARegistroEntrega getEntregas() {
         return entregas;
     }
 
-    public void setEntregas(RegistroEntregaImpList entregas) {
+    public void setEntregas(ARegistroEntrega entregas) {
         this.entregas = entregas;
     }
 
+    public PeriodoEntrega getUltimoPeriodoValido() {
+        return ultimoPeriodoValido;
+    }
+
+    public void setUltimoPeriodoValido(PeriodoEntrega periodo) {
+        this.ultimoPeriodoValido = periodo;
+    }
+
+    
+
     @Override
     public String toString() {
-        return "Periodo{" + "fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", estado=" + estado + 
-                ", entregas=" + (entregas != null ? "RegistroEntregaImpList" : "null")  + '}';
+        return "Periodo{" + "fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin ;
     }
     
-    public void actualizarPeriodo(){
-        DayOfWeek diaSemanaActual = LocalDate.now().getDayOfWeek();
-        if(diaSemanaActual == DayOfWeek.MONDAY || diaSemanaActual == DayOfWeek.TUESDAY){
+    public PeriodoEntrega actualizarPeriodo(){
+        
             this.fechaInicio = LocalDate.now();
             this.fechaFin = fechaInicio.plusDays(6);
             System.out.println("Periodo Actualizado");
             System.out.println("PERIODO -> Fecha inicio: "+ fechaInicio+", Fecha fin: "+fechaFin);
-        }
-        else{
-            System.out.println("No se ha podido actualizar el periodo NO ES LUNES");
-        }
+            PeriodoEntrega periodoSemanal = new PeriodoEntrega(fechaInicio, fechaFin, entregas);
+            ultimoPeriodoValido.setUltimoPeriodoValido(periodoSemanal);
+            return periodoSemanal;
+            
+        
     }
     
     
     public boolean confirmarRetiro(Estudiante e){
-        System.out.println(e);
         int entregados = 0;
+        
+        File archivo = entregas.getArchivo();
+        try (Scanner scanner = new Scanner(archivo)) {
+        while (scanner.hasNextLine()) {
+            String linea = scanner.nextLine();
+            Entrega entrega = parseEntrega(linea);
 
-        for(Entrega entrega: entregas.getEntregas()){
-            if(entrega.getEstudiante().equals(e)){
-                if(entrega.getFechaEntrega().isAfter(fechaInicio) || entrega.getFechaEntrega().isBefore(fechaFin) 
-                || entrega.getFechaEntrega().isEqual(fechaInicio) || entrega.getFechaEntrega().isEqual(fechaFin)){
+            if (entrega.getEstudiante().equals(e)) {
+                if (entrega.getFechaEntrega().isAfter(fechaInicio) && entrega.getFechaEntrega().isBefore(fechaFin)
+                        || entrega.getFechaEntrega().isEqual(fechaInicio) || entrega.getFechaEntrega().isEqual(fechaFin)) {
                     entregados += 1;
                 }
             }
         }
-        
-        return entregados < 3;
+    } catch (IOException ex) {
+        ex.printStackTrace();
     }
+
+    return entregados < 3;
+    }
+    
+    private Entrega parseEntrega(String linea) {
+    String[] datos = linea.split(";");
+    Estudiante estudiante = new Estudiante(
+        datos[0],  // nombre
+        Long.parseLong(datos[1]),  // cedula
+        datos[2],  // correo
+        datos[3],  // carrera
+        Integer.parseInt(datos[4]),  // semestre
+        Long.parseLong(datos[5])   // telefono
+    );
+    LocalDate fechaEntrega = LocalDate.parse(datos[6]);
+    int noAlmuerzosDisponibles = Integer.parseInt(datos[7]);
+    PeriodoEntrega periodo = this.ultimoPeriodoValido;
+    
+    return new Entrega(estudiante, entregas, periodo, fechaEntrega, noAlmuerzosDisponibles);
+}
     
     
     

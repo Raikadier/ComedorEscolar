@@ -6,6 +6,6 @@ public interface RegistroEntrega {
     
     
     
-    public void registrarEntrega(Entrega entrega);
+    public boolean registrarEntrega(Entrega entrega);
     public void mostrarLista();
 }

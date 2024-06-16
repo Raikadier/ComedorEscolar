@@ -11,16 +11,16 @@ public class Entrega {
     private LocalDate fechaEntrega;
     private int noAlmuerzosDisponibles;
     private PeriodoEntrega periodo;
-    private RegistroEntregaImpList entregas;
+    private ARegistroEntrega entregas;
 
     public Entrega() {
     }
 
-    public Entrega(Estudiante estudiante, RegistroEntregaImpList entregas, PeriodoEntrega periodo ) {
+    public Entrega(Estudiante estudiante, ARegistroEntrega entregas, PeriodoEntrega periodo, LocalDate fechaEntrega, int noAlmuerzosDisponibles) {
         this.estudiante = estudiante;
         this.entregas = entregas;
         this.fechaEntrega = fechaEntrega;
-        this.noAlmuerzosDisponibles = 3;
+        this.noAlmuerzosDisponibles = noAlmuerzosDisponibles;
         this.periodo = periodo;
     }
 
@@ -56,13 +56,14 @@ public class Entrega {
         this.noAlmuerzosDisponibles = noAlmuerzosDisponibles;
     }
 
-    public RegistroEntregaImpList getEntregas() {
+    public ARegistroEntrega getEntregas() {
         return entregas;
     }
 
-    public void setEntregas(RegistroEntregaImpList entregas) {
+    public void setEntregas(ARegistroEntrega entregas) {
         this.entregas = entregas;
     }
+
 
     @Override
     public String toString() {
@@ -70,11 +71,15 @@ public class Entrega {
                 ", noAlmuerzosDisponibles=" + noAlmuerzosDisponibles + ", periodo=" +  (periodo != null ? "PeriodoEntrega" : "null") ;
     }
     
+    public String dataFile(){
+        return this.estudiante.dataFile()+";"+this.fechaEntrega+";"+this.noAlmuerzosDisponibles+";"+this.periodo;
+    }
+    
     public void retirarAlmuerzo(Estudiante e){
+        this.fechaEntrega = LocalDate.now();
         boolean confirmarRetiro = periodo.confirmarRetiro(e);
         if (confirmarRetiro){
             this.noAlmuerzosDisponibles -= 1;
-            this.fechaEntrega = LocalDate.now();
             entregas.registrarEntrega(this);
             
         }
