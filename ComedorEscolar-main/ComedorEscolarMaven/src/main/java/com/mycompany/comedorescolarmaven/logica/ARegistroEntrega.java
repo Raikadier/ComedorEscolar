@@ -64,6 +64,14 @@ public class ARegistroEntrega implements RegistroEntrega {
 
     @Override
     public void mostrarLista() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try (Scanner scanner = new Scanner(this.archivo)) {
+            while (scanner.hasNextLine()) {
+                String linea = scanner.nextLine();
+                System.out.println(linea);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    
     }
 }

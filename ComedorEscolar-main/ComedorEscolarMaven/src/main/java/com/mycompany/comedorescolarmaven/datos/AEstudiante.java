@@ -170,5 +170,16 @@ public class AEstudiante implements IEstudiante {
         }
         return estudiantes;
     }
+    
+    public void mostrarTodosLosElementos() {
+        try (Scanner scanner = new Scanner(this.manejoArchivo)) {
+            while (scanner.hasNextLine()) {
+                String linea = scanner.nextLine();
+                System.out.println(linea);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Archivo no encontrado");
+        }
+    }
 
 }
