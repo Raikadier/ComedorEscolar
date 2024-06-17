@@ -19,7 +19,7 @@ public class Entrega {
         this.estudiante = estudiante;
         this.entregas = entregas;
         this.fechaEntrega = fechaEntrega;
-        this.noAlmuerzosDisponibles = noAlmuerzosDisponibles;
+        this.noAlmuerzosDisponibles = estudiante.getCantidadAlmuerzos();
         this.periodo = periodo;
     }
 
@@ -52,7 +52,7 @@ public class Entrega {
     }
 
     public void setNoAlmuerzosDisponibles(int noAlmuerzosDisponibles) {
-        this.noAlmuerzosDisponibles = noAlmuerzosDisponibles;
+        this.noAlmuerzosDisponibles = estudiante.getCantidadAlmuerzos();
     }
 
     public ARegistroEntrega getEntregas() {
@@ -77,7 +77,7 @@ public class Entrega {
         this.fechaEntrega = LocalDate.now();
         boolean confirmarRetiro = periodo.confirmarRetiro(e);
         if (confirmarRetiro) {
-            this.noAlmuerzosDisponibles -= 1;
+            e.setCantidadAlmuerzos(noAlmuerzosDisponibles-1);
             entregas.registrarEntrega(this);
 
         } else {

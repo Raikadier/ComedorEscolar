@@ -5,15 +5,17 @@ public class Estudiante extends Persona {
     protected String carrera;
     private String correo;
     protected int semestre;
+    private int cantidadAlmuerzos;
 
     public Estudiante() {
     }
 
-    public Estudiante(String nombre, long cedula, String correo, String carrera, int semestre, long tel) {
+    public Estudiante(String nombre, long cedula, String correo, String carrera, int semestre, long tel,int cantidadAlmuerzos) {
         super(nombre, cedula, tel);
         this.carrera = carrera;
         this.correo = correo;
         this.semestre = semestre;
+        this.cantidadAlmuerzos = 3;
     }
 
     public String getCorreo() {
@@ -56,13 +58,23 @@ public class Estudiante extends Persona {
         this.cedula = cedula;
     }
 
+    public int getCantidadAlmuerzos() {
+        return cantidadAlmuerzos;
+    }
+
+    public void setCantidadAlmuerzos(int cantidadAlmuerzos) {
+        this.cantidadAlmuerzos = cantidadAlmuerzos;
+    }
+    
+    
+
     @Override
     public String toString() {
         return "Estudiante -> " + super.toString() + ", carrera: " + carrera + ", semestre: " + semestre + '}';
     }
 
     public String dataFile() {
-        return this.nombre + ";" + this.cedula + ";" + this.correo + ";" + this.carrera + ";" + this.semestre + ";" + this.telefono;
+        return this.nombre + ";" + this.cedula + ";" + this.correo + ";" + this.carrera + ";" + this.semestre + ";" + this.telefono+";"+this.cantidadAlmuerzos;
     }
 
 }

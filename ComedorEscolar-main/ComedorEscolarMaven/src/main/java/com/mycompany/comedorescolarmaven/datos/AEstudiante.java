@@ -75,7 +75,8 @@ public class AEstudiante implements IEstudiante {
         String carrera = datos[3];
         int semestre = Integer.parseInt(datos[4]);
         long tel = Long.parseLong(datos[5]);
-        return new Estudiante(nombre, cedula, correo, carrera, semestre, tel);
+        int almuerzos = Integer.parseInt(datos[6]);
+        return new Estudiante(nombre, cedula, correo, carrera, semestre, tel, almuerzos);
     }
 
     @Override

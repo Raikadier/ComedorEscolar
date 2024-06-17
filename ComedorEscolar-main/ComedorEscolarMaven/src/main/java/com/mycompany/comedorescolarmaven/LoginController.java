@@ -46,7 +46,8 @@ public class LoginController implements Initializable {
             
         } else if (this.um.usuarioMaestro(username, password)) {
             //App.setNewScene("AdministradorHomeEs");
-            App.setNewScene("AdministradorHomeEm");
+            //App.setNewScene("AdministradorHomeEm");
+            App.setNewScene("EmpleadoHome");
             
         } else {
             // Genera mensaje de notificacion

@@ -117,7 +117,8 @@ public class PeriodoEntrega {
                 datos[2], // correo
                 datos[3], // carrera
                 Integer.parseInt(datos[4]), // semestre
-                Long.parseLong(datos[5]) // telefono
+                Long.parseLong(datos[5]), // telefono
+                Integer.parseInt(datos[6])
         );
         LocalDate fechaEntrega = LocalDate.parse(datos[6]);
         int noAlmuerzosDisponibles = Integer.parseInt(datos[7]);
